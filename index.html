@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Julian (Iulian) Circo - Co-Founder & COO of Hyfe">
+  <title>Julian (Iulian) Circo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 500px;
+      width: 100%;
+      padding: 2rem;
+      animation: fadeIn 0.6s ease-in;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: 4px solid white;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    }
+    
+    .profile-img.error {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: white;
+      font-weight: 600;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+    
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+    
+    .links li {
+      margin: 0.75rem 0;
+    }
+    
+    .links a {
+      display: block;
+      color: #0070f3;
+      background-color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .links a:hover {
+      background-color: #0070f3;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,112,243,0.3);
+    }
+    
+    .links a:focus {
+      outline: 2px solid #0070f3;
+      outline-offset: 2px;
+    }
+    
+    .links a.inverted {
+      background-color: #0070f3;
+      color: white;
+    }
+    
+    .links a.inverted:hover {
+      background-color: white;
+      color: #0070f3;
+      box-shadow: 0 4px 12px rgba(0,112,243,0.3), inset 0 0 0 2px #0070f3;
+    }
+    
+    footer {
+      margin-top: auto;
+      padding: 1rem 0;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .links a {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.95rem;
+      }
+    }
+    
+    /* Accessibility: Prefers reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="photo.jpg" alt="Julian Circo Profile Photo" class="profile-img" id="profileImg">
+    <h1>Julian (Iulian) Circo</h1>
+    <p class="subtitle">Co-Founder & COO at Hyfe</p>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/icirco/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://hyfe.ai" target="_blank" rel="noopener noreferrer">Hyfe Website</a></li>
+      <li><a href="https://www.instagram.com/outer.here/" target="_blank" rel="noopener noreferrer" class="inverted">Personal - @outer.here</a></li>
+    </ul>
+  </div>
+  <footer>© 2025 Julian Circo</footer>
+  
+  <script>
+    // Handle image loading errors gracefully
+    const img = document.getElementById('profileImg');
+    img.onerror = function() {
+      this.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.className = 'profile-img error';
+      placeholder.textContent = 'JC';
+      placeholder.setAttribute('role', 'img');
+      placeholder.setAttribute('aria-label', 'Julian Circo initials');
+      this.parentNode.insertBefore(placeholder, this);
+    };
+  </script>
+</body>
+</html>
