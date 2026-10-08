@@ -1,191 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Julian (Iulian) Circo">
-  <title>Julian (Iulian) Circo</title>
-  <style>
-    * {
-      box-sizing: border-box;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Julian (Iulian) Circo · Co-founder of Hyfe</title>
+  <meta name="description" content="Julian (Iulian) Circo, co-founder of Hyfe, turning cough into a digital biomarker. LinkedIn, @outer.here on Instagram and Strava.">
+  <link rel="canonical" href="https://circo.io/">
+  <meta name="author" content="Julian Circo">
+  <meta name="theme-color" content="#0E0F10">
+  <meta name="color-scheme" content="dark">
+
+  <!-- Social previews -->
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://circo.io/">
+  <meta property="og:site_name" content="circo.io">
+  <meta property="og:title" content="Julian (Iulian) Circo">
+  <meta property="og:description" content="Co-founder of Hyfe, turning cough into a digital biomarker.">
+  <meta property="og:image" content="https://circo.io/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Julian Circo">
+  <meta property="profile:first_name" content="Julian">
+  <meta property="profile:last_name" content="Circo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- Who this page is about, for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://circo.io/",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://circo.io/#me",
+      "name": "Julian Circo",
+      "alternateName": ["Iulian Circo", "Julian (Iulian) Circo"],
+      "givenName": "Julian",
+      "familyName": "Circo",
+      "jobTitle": "Co-founder",
+      "description": "Co-founder of Hyfe, turning cough into a digital biomarker.",
+      "url": "https://circo.io/",
+      "image": "https://circo.io/assets/og.jpg",
+      "worksFor": { "@type": "Organization", "name": "Hyfe", "url": "https://hyfe.com" },
+      "sameAs": [
+        "https://www.linkedin.com/in/icirco/",
+        "https://www.instagram.com/outer.here/",
+        "https://www.strava.com/athletes/2459272"
+      ]
     }
-    
+  }
+  </script>
+
+  <link rel="preload" as="image" type="image/avif"
+        imagesrcset="/assets/bg-600.avif 600w, /assets/bg-1000.avif 1000w, /assets/bg-1500.avif 1500w"
+        imagesizes="(max-width: 760px) 100vw, 60vw" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap"></noscript>
+
+  <style>
+    :root {
+      --bg: #0E0F10;
+      --ink: #EDEBE6;
+      --muted: #A19E97;
+      --faint: #8C8982;
+      --work: 130 160 210;      /* cool slate */
+      --work-ink: #AFC4E8;
+      --work-label: #8FA3C2;
+      --life: 242 178 84;       /* warm amber */
+      --life-ink: #F2B254;
+      --life-label: #C9A06A;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --pad: clamp(20px, 4vw, 48px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); color-scheme: dark; -webkit-text-size-adjust: 100%; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      color: #222;
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
+      position: relative;
+      overflow-x: hidden;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    
-    .container {
-      max-width: 500px;
-      width: 100%;
-      padding: 2rem;
-      animation: fadeIn 0.6s ease-in;
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible { outline: 2px solid var(--life-ink); outline-offset: 4px; border-radius: 2px; }
+
+    /* Background photo, fading into the page on the left */
+    .bg { position: absolute; inset: 0 0 0 auto; width: 60%; height: 100%; z-index: 0; pointer-events: none; }
+    .bg img {
+      width: 100%; height: 100%; display: block;
+      object-fit: cover; object-position: 50% 40%;
+      filter: grayscale(.4) brightness(.62) contrast(1.08);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%);
+              mask-image: linear-gradient(to right, transparent 0%, #000 38%);
     }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+
+    header, main, footer { position: relative; z-index: 1; padding-inline: var(--pad); }
+    header {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      justify-content: space-between; align-items: center;
+      padding-block: 32px;
+      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
     }
-    
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 20px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      border: 4px solid white;
-      display: block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    header .soon { color: var(--muted); font-size: 12px; }
+
+    main {
+      flex: 1;
+      width: 100%; max-width: min(640px, 54vw);
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 40px;
+      padding-block: 56px 64px;
     }
-    
-    .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+    h1 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
+
+    .groups { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Work and Life each get a faint tinted band that fades out toward the photo */
+    .group {
+      --tone: var(--work); --ink-hover: var(--work-ink); --label: var(--work-label);
+      margin-left: calc(-1 * var(--pad));
+      padding: 22px 24px 22px var(--pad);
+      border-radius: 0 14px 14px 0;
+      background: linear-gradient(90deg, rgb(var(--tone) / .09), rgb(var(--tone) / 0) 92%);
     }
-    
-    .profile-img.error {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
-      color: white;
-      font-weight: 600;
+    .group.life { --tone: var(--life); --ink-hover: var(--life-ink); --label: var(--life-label); }
+
+    h2 {
+      margin: 0 0 8px;
+      font-family: var(--mono); font-weight: 400; font-size: 12px;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--label);
     }
-    
-    h1 {
-      font-size: 2rem;
-      margin: 0 0 0.5rem 0;
-      font-weight: 600;
-      line-height: 1.2;
+    ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+    .link {
+      display: flex; align-items: center; gap: 16px;
+      min-height: 44px; padding-block: 4px;
+      transition: color .2s ease;
     }
-    
-    .subtitle {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 2rem;
-      font-weight: 400;
-    }
-    
-    .links {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2rem 0;
-    }
-    
-    .links li {
-      margin: 0.75rem 0;
-    }
-    
-    .links a {
-      display: block;
-      color: #0070f3;
-      background-color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
-    
-    .links a:hover {
-      background-color: #0070f3;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,112,243,0.3);
-    }
-    
-    .links a:focus {
-      outline: 2px solid #0070f3;
-      outline-offset: 2px;
-    }
-    
-    .links a.inverted {
-      background-color: #0070f3;
-      color: white;
-    }
-    
-    .links a.inverted:hover {
-      background-color: white;
-      color: #0070f3;
-      box-shadow: 0 4px 12px rgba(0,112,243,0.3), inset 0 0 0 2px #0070f3;
-    }
-    
+    .link .txt { display: flex; align-items: baseline; flex-wrap: wrap; column-gap: 16px; row-gap: 2px; }
+    .link .name { font-size: clamp(34px, 3.8vw, 44px); font-weight: 500; letter-spacing: -.03em; line-height: 1.1; }
+    .link .what { font-size: 14px; color: var(--faint); }
+    .link svg { margin-left: auto; flex: none; color: #6F6C66; transition: transform .25s ease, color .25s ease; }
+    .link:hover, .link:focus-visible { color: var(--ink-hover); }
+    .link:hover svg, .link:focus-visible svg { color: var(--ink-hover); transform: translate(4px, -4px); }
+
     footer {
-      margin-top: auto;
-      padding: 1rem 0;
-      font-size: 0.85rem;
-      color: #777;
+      padding-block: 28px;
+      font-family: var(--mono); font-size: 12px; color: var(--faint);
     }
-    
-    /* Responsive adjustments */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.5rem;
+
+    @media (max-width: 760px) {
+      .bg { inset: 0 0 auto 0; width: 100%; height: 62svh; }
+      .bg img {
+        object-position: 55% 45%;
+        -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
+                mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
       }
-      
-      .profile-img {
-        width: 150px;
-        height: 150px;
-      }
-      
-      .links a {
-        padding: 0.875rem 1.25rem;
-        font-size: 0.95rem;
-      }
+      main { max-width: none; padding-top: 40svh; gap: 32px; }
+      .link .txt { flex-direction: column; align-items: flex-start; }
     }
-    
-    /* Accessibility: Prefers reduced motion */
     @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-      }
+      .link, .link svg { transition: none; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="photo.jpg" alt="Julian Circo Profile Photo" class="profile-img" id="profileImg">
-    <h1>Julian (Iulian) Circo</h1>
-    <p class="subtitle">__</p>
-    <ul class="links">
-      <li><a href="https://www.linkedin.com/in/icirco/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-      <li><a href="https://hyfe.com" target="_blank" rel="noopener noreferrer">Hyfe Website</a></li>
-      <li><a href="https://www.instagram.com/outer.here/" target="_blank" rel="noopener noreferrer" class="inverted">Personal - @outer.here</a></li>
-    </ul>
+  <div class="bg" aria-hidden="true">
+    <picture>
+      <source type="image/avif" srcset="/assets/bg-600.avif 600w, /assets/bg-1000.avif 1000w, /assets/bg-1500.avif 1500w" sizes="(max-width: 760px) 100vw, 60vw">
+      <source type="image/webp" srcset="/assets/bg-600.webp 600w, /assets/bg-1000.webp 1000w, /assets/bg-1500.webp 1500w" sizes="(max-width: 760px) 100vw, 60vw">
+      <img src="/assets/bg-1000.jpg" alt="" width="1000" height="1333" fetchpriority="high" decoding="async">
+    </picture>
   </div>
-  <footer>2025 Julian Circo</footer>
-  
-  <script>
-    // Handle image loading errors gracefully
-    const img = document.getElementById('profileImg');
-    img.onerror = function() {
-      this.style.display = 'none';
-      const placeholder = document.createElement('div');
-      placeholder.className = 'profile-img error';
-      placeholder.textContent = 'JC';
-      placeholder.setAttribute('role', 'img');
-      placeholder.setAttribute('aria-label', 'Julian Circo initials');
-      this.parentNode.insertBefore(placeholder, this);
-    };
-  </script>
+
+  <header>
+    <a href="/">circo.io</a>
+    <span class="soon">Notes · soon</span>
+  </header>
+
+  <main>
+    <h1>Julian (Iulian) Circo</h1>
+
+    <nav class="groups" aria-label="Profiles">
+      <section class="group work" aria-labelledby="work">
+        <h2 id="work">Work</h2>
+        <ul>
+          <li><a class="link" href="https://hyfe.com"><span class="txt"><span class="name">Hyfe</span><span class="what">co-founder. Turning cough into a digital biomarker</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          <li><a class="link" href="https://www.linkedin.com/in/icirco/" rel="me"><span class="txt"><span class="name">LinkedIn</span><span class="what">career, contact</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+        </ul>
+      </section>
+      <section class="group life" aria-labelledby="life">
+        <h2 id="life">Life</h2>
+        <ul>
+          <li><a class="link" href="https://www.instagram.com/outer.here/" rel="me" aria-label="@outer.here on Instagram"><span class="txt"><span class="name">@outer.here</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+          <li><a class="link" href="https://www.strava.com/athletes/2459272" rel="me" aria-label="Strava profile"><span class="txt"><span class="name">Strava</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
+        </ul>
+      </section>
+    </nav>
+  </main>
+
+  <footer>© 2026 Julian (Iulian) Circo</footer>
 </body>
 </html>
