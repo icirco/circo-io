@@ -107,21 +107,14 @@
               mask-image: linear-gradient(to right, transparent 0%, #000 38%);
     }
 
-    header, main, footer { position: relative; z-index: 1; padding-inline: var(--pad); }
-    header {
-      display: flex; flex-wrap: wrap; gap: 16px;
-      justify-content: space-between; align-items: center;
-      padding-block: 32px;
-      font-family: var(--mono); font-size: 13px; letter-spacing: .02em;
-    }
-    header .soon { color: var(--muted); font-size: 12px; }
-
     main {
+      position: relative; z-index: 1;
+      padding-inline: var(--pad);
       flex: 1;
       width: 100%; max-width: min(640px, 54vw);
       display: flex; flex-direction: column; justify-content: center;
       gap: 40px;
-      padding-block: 56px 64px;
+      padding-block: 64px;
     }
     h1 { margin: 0; font-size: 22px; font-weight: 500; letter-spacing: -.01em; }
 
@@ -155,11 +148,6 @@
     .link:hover, .link:focus-visible { color: var(--ink-hover); }
     .link:hover svg, .link:focus-visible svg { color: var(--ink-hover); transform: translate(4px, -4px); }
 
-    footer {
-      padding-block: 28px;
-      font-family: var(--mono); font-size: 12px; color: var(--faint);
-    }
-
     @media (max-width: 760px) {
       .bg { inset: 0 0 auto 0; width: 100%; height: 62svh; }
       .bg img {
@@ -167,7 +155,7 @@
         -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
                 mask-image: linear-gradient(to bottom, #000 45%, transparent 100%);
       }
-      main { max-width: none; padding-top: 40svh; gap: 32px; }
+      main { max-width: none; padding-top: 44svh; padding-bottom: 48px; gap: 32px; }
       .link .txt { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -183,11 +171,6 @@
       <img src="/assets/bg-1000.jpg" alt="" width="1000" height="1333" fetchpriority="high" decoding="async">
     </picture>
   </div>
-
-  <header>
-    <a href="/">circo.io</a>
-    <span class="soon">Notes · soon</span>
-  </header>
 
   <main>
     <h1>Julian (Iulian) Circo</h1>
@@ -209,7 +192,5 @@
       </section>
     </nav>
   </main>
-
-  <footer>© 2026 Julian (Iulian) Circo</footer>
 </body>
 </html>
