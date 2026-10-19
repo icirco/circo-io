@@ -1,0 +1,124 @@
+# All text for circo.io/bio (English) and circo.io/bio/de/ (German).
+#
+# How to edit: change the text between the double quotes, keep the quotes.
+# If your text itself needs a double quote, write it as \"  (backslash + quote).
+# Commit the change on GitHub; the site updates in 1-2 minutes.
+# Each item has an English (en) and German (de) version next to each other.
+
+# Browser tab title and Google search snippet
+meta:
+  title:
+    en: "Julian (Iulian) Circo · Bio"
+    de: "Julian (Iulian) Circo · Bio"
+  description:
+    en: "Serial founder and operator. I mentor early-stage founders in health, impact and frontier technology, from idea to first capital and first revenue."
+    de: "Serial Founder und Operator. Ich begleite Gründerinnen und Gründer in frühen Phasen in den Bereichen Gesundheit, Impact und Frontier-Tech: von der Idee bis zum ersten Kapital und ersten Umsatz."
+
+name: "Julian Circo"
+
+intro:
+  en: "Serial founder and operator. I mentor early-stage founders in health, impact and frontier technology, from idea to first capital and first revenue."
+  de: "Serial Founder und Operator. Ich begleite Gründerinnen und Gründer in frühen Phasen in den Bereichen Gesundheit, Impact und Frontier-Tech: von der Idee bis zum ersten Kapital und ersten Umsatz."
+
+portrait_alt:
+  en: "Julian Circo, portrait"
+  de: "Julian Circo, Porträt"
+
+# Section headings and small interface words
+labels:
+  focus:
+    en: "Focus"
+    de: "Fokus"
+  track:
+    en: "Track record"
+    de: "Track Record"
+  bio:
+    en: "Bio"
+    de: "Bio"
+  languages:
+    en: "Languages"
+    de: "Sprachen"
+  contact:
+    en: "Contact"
+    de: "Kontakt"
+  expand:
+    en: "Expand"
+    de: "Mehr anzeigen"
+  collapse:
+    en: "Collapse"
+    de: "Weniger anzeigen"
+
+focus:
+  # The three areas, always visible
+  areas:
+    en:
+      - "Digital health & AI"
+      - "Impact ventures & emerging markets"
+      - "Frontier tech & venture building"
+    de:
+      - "Digital Health & KI"
+      - "Impact-Ventures & Emerging Markets"
+      - "Frontier-Tech & Venture Building"
+  # Shown after clicking "Expand"
+  details:
+    en:
+      - "Regulated health markets and clinical evidence"
+      - "Building operations in low-infrastructure markets"
+      - "Scaling teams and P&L"
+      - "Getting to first capital and revenue"
+      - "Impact measurement and verification"
+    de:
+      - "Regulierte Gesundheitsmärkte und klinische Evidenz"
+      - "Aufbau von Operations in Märkten mit schwacher Infrastruktur"
+      - "Skalierung von Teams und P&L-Verantwortung"
+      - "Der Weg zu erstem Kapital und Umsatz"
+      - "Wirkungsmessung und -verifizierung"
+
+track:
+  - label:
+      en: "Founder"
+      de: "Gründer"
+    text:
+      en: "Hyfe, Proof of Impact, Triggerise"
+      de: "Hyfe, Proof of Impact, Triggerise"
+  - label:
+      en: "Venture & invention"
+      de: "Venture & Invention"
+    text:
+      en: "Advisor to Intellectual Ventures"
+      de: "Berater von Intellectual Ventures"
+  - label:
+      en: "Field leadership"
+      de: "Führung im Feld"
+    text:
+      en: "Country operations for PSI in Mozambique and Swaziland, up to 400 staff; IOM operations in Somalia; humanitarian missions across Africa, Asia, the Middle East and the Balkans"
+      de: "Länderprogramme von PSI in Mosambik und Swasiland mit bis zu 400 Mitarbeitenden; Aufbau der IOM-Präsenz in Somalia; humanitäre Einsätze in Afrika, Asien, im Nahen Osten und am Balkan"
+
+bio:
+  # First sentence, always visible
+  first:
+    en: "Julian Circo has spent his career at the intersection of social impact, entrepreneurship and technology."
+    de: "Julian Circo bewegt sich seit jeher an der Schnittstelle von sozialer Wirkung, Unternehmertum und Technologie."
+  # Paragraphs shown after clicking "Expand"
+  rest:
+    en:
+      - "He started on the front lines of aid delivery, on humanitarian missions in places like East Timor, Cambodia and the DRC, then started up operations for a UN agency in Somalia and turned around large scale country operations for a global public health organization in Swaziland and Mozambique."
+      - "He founded and built to scale Triggerise, a global social enterprise connecting people in underserved markets with health products and services, and co-founded Proof of Impact, a platform for verifying and financing impact."
+      - "He also advised Intellectual Ventures, the Seattle-based IP and venture capital firm."
+      - "In 2020 he co-founded Hyfe, an AI health tech company that turns cough into a digital biomarker, and has since taken it to scale. Hyfe is the global market leader in cough monitoring and has been used in 52+ clinical trials, including Phase 2 and 3 pharma trials."
+      - "A human rights lawyer by training, he is based in Vienna."
+    de:
+      - "Seine Laufbahn begann an vorderster Front der humanitären Hilfe, mit Einsätzen unter anderem in Osttimor, Kambodscha und der DR Kongo. Danach baute er die Präsenz einer UN-Organisation in Somalia auf und stellte die großen Länderprogramme einer globalen Gesundheitsorganisation in Swasiland und Mosambik neu auf."
+      - "Er gründete Triggerise und skalierte es zu einem globalen Sozialunternehmen, das Menschen in unterversorgten Märkten Zugang zu Gesundheitsleistungen verschafft. Zudem war er Mitgründer von Proof of Impact, einer Plattform zur Verifizierung und Finanzierung von Wirkung."
+      - "Darüber hinaus beriet er Intellectual Ventures, die IP- und Venture-Capital-Gesellschaft in Seattle."
+      - "2020 gründete er gemeinsam mit Partnern Hyfe, ein KI-Health-Tech-Unternehmen, das Husten zum digitalen Biomarker macht, und hat es seither erfolgreich skaliert. Hyfe ist Weltmarktführer im Husten-Monitoring und kam bereits in 52+ klinischen Studien zum Einsatz, darunter Pharma-Studien der Phasen 2 und 3."
+      - "Der ausgebildete Menschenrechtsjurist lebt in Wien."
+
+languages:
+  en: "English, German, Romanian, Portuguese"
+  de: "Englisch, Deutsch, Rumänisch, Portugiesisch"
+
+contact:
+  email: "julian@circo.io"
+  linkedin_url: "https://www.linkedin.com/in/icirco"
+  linkedin_label: "linkedin.com/in/icirco"

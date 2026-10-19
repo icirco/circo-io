@@ -57,12 +57,11 @@
   <link rel="preload" as="image" type="image/avif"
         imagesrcset="/assets/bg-600.avif 600w, /assets/bg-1000.avif 1000w, /assets/bg-1500.avif 1500w"
         imagesizes="(max-width: 760px) 100vw, 60vw" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap"></noscript>
+  <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    @font-face { font-family: "Geist"; src: url("/assets/fonts/geist.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/geist-mono.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
     :root {
       --bg: #0E0F10;
       --ink: #EDEBE6;
@@ -179,6 +178,7 @@
       <section class="group work" aria-labelledby="work">
         <h2 id="work">Work</h2>
         <ul>
+          <li><a class="link" href="/bio/"><span class="txt"><span class="name">Bio</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></li>
           <li><a class="link" href="https://hyfe.com"><span class="txt"><span class="name">Hyfe</span><span class="what">co-founder. Turning cough into a digital biomarker</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
           <li><a class="link" href="https://www.linkedin.com/in/icirco/" rel="me"><span class="txt"><span class="name">LinkedIn</span><span class="what">career, contact</span></span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></li>
         </ul>

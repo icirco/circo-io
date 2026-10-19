@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://circo.io/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-19</lastmod>
+  </url>
+  <url>
+    <loc>https://circo.io/bio/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://circo.io/bio/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://circo.io/bio/de/"/>
+  </url>
+  <url>
+    <loc>https://circo.io/bio/de/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://circo.io/bio/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://circo.io/bio/de/"/>
   </url>
 </urlset>
