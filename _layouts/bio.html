@@ -1,0 +1,252 @@
+{%- assign L = page.lang -%}
+{%- assign d = site.data.bio -%}
+{%- if L == "de" -%}{%- assign self_url = "https://circo.io/bio/de/" -%}{%- assign og_locale = "de_AT" -%}{%- assign og_alt = "en_US" -%}
+{%- else -%}{%- assign self_url = "https://circo.io/bio/" -%}{%- assign og_locale = "en_US" -%}{%- assign og_alt = "de_AT" -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ L }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ d.meta.title[L] | escape }}</title>
+  <meta name="description" content="{{ d.meta.description[L] | escape }}">
+  <link rel="canonical" href="{{ self_url }}">
+  <link rel="alternate" hreflang="en" href="https://circo.io/bio/">
+  <link rel="alternate" hreflang="de" href="https://circo.io/bio/de/">
+  <link rel="alternate" hreflang="x-default" href="https://circo.io/bio/">
+  <meta name="author" content="{{ d.name | escape }}">
+  <meta name="theme-color" content="#0E0F10">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{ self_url }}">
+  <meta property="og:site_name" content="circo.io">
+  <meta property="og:locale" content="{{ og_locale }}">
+  <meta property="og:locale:alternate" content="{{ og_alt }}">
+  <meta property="og:title" content="{{ d.meta.title[L] | escape }}">
+  <meta property="og:description" content="{{ d.meta.description[L] | escape }}">
+  <meta property="og:image" content="https://circo.io/bio/og-{{ L }}.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ d.name | escape }}">
+  <meta property="profile:first_name" content="Julian">
+  <meta property="profile:last_name" content="Circo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "{{ self_url }}",
+    "inLanguage": "{{ L }}",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://circo.io/#me",
+      "name": "Julian Circo",
+      "alternateName": ["Iulian Circo", "Julian (Iulian) Circo"],
+      "givenName": "Julian",
+      "familyName": "Circo",
+      "jobTitle": "Co-founder",
+      "description": {{ d.intro[L] | jsonify }},
+      "url": "https://circo.io/",
+      "image": "https://circo.io/bio/portrait.jpg",
+      "email": "mailto:{{ d.contact.email }}",
+      "address": { "@type": "PostalAddress", "addressLocality": "Vienna", "addressCountry": "AT" },
+      "knowsLanguage": ["en", "de", "ro", "pt"],
+      "worksFor": { "@type": "Organization", "name": "Hyfe", "url": "https://hyfe.com/" },
+      "sameAs": [
+        "https://www.linkedin.com/in/icirco",
+        "https://www.instagram.com/outer.here/",
+        "https://www.strava.com/athletes/2459272"
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    @font-face { font-family: "Geist"; src: url("/assets/fonts/geist.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/geist-mono.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    :root {
+      --bg: #0E0F10;
+      --ink: #EDEBE6;
+      --body: #CFCCC6;
+      --muted: #A19E97;
+      --faint: #8C8982;
+      --line: rgba(255, 255, 255, .08);
+      --accent: #AFC4E8;
+      --label: #8FA3C2;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); color-scheme: dark; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 48px; animation: in .2s ease-out both; }
+    @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    header { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 28px 0; font-family: var(--mono); font-size: 13px; }
+    header .back { color: var(--muted); display: inline-flex; align-items: center; min-height: 44px; }
+    .lang { display: flex; gap: 10px; align-items: center; }
+    .lang a { color: var(--faint); display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
+    .lang a[aria-current="page"] { color: var(--accent); }
+    .lang a:hover { color: var(--ink); }
+    .lang .sep { color: #4A4A48; }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 64px; align-items: end; padding: 40px 0 96px; }
+    .hero-text { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 24px; padding-bottom: 24px; }
+    h1 { margin: 0; font-size: 64px; font-weight: 500; letter-spacing: -.04em; line-height: .98; }
+    .intro { margin: 0; font-size: 24px; line-height: 1.42; color: var(--body); max-width: 560px; }
+    .photo {
+      width: 400px; height: 520px; display: block;
+      object-fit: cover; object-position: 50% 18%;
+      filter: saturate(.7) brightness(.88) contrast(1.05);
+      -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 97%), linear-gradient(to right, transparent 0%, #000 18%);
+      -webkit-mask-composite: source-in;
+              mask-image: linear-gradient(to bottom, #000 62%, transparent 97%), linear-gradient(to right, transparent 0%, #000 18%);
+              mask-composite: intersect;
+    }
+
+    .row { display: grid; grid-template-columns: 220px minmax(0, 640px); gap: 40px; padding: 56px 0; border-top: 1px solid var(--line); }
+    .row:last-child { padding-bottom: 112px; }
+    h2 { margin: 4px 0 0; font-family: var(--mono); font-weight: 400; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--label); }
+
+    .areas { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    .areas li { background: var(--bg); padding: 18px 16px; font-size: 15px; line-height: 1.35; }
+    .details-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+    .more { margin-top: 16px; }
+    .more > summary {
+      list-style: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer;
+      font-size: 15px; color: var(--accent);
+      text-decoration: underline; text-decoration-color: rgba(175, 196, 232, .4); text-underline-offset: 4px;
+    }
+    .more > summary::-webkit-details-marker { display: none; }
+    .more > summary:hover { text-decoration-color: var(--accent); }
+    .more .t-close { display: none; }
+    .more[open] .t-open { display: none; }
+    .more[open] .t-close { display: inline; }
+    .more .chev { transition: transform .2s ease; }
+    .more[open] .chev { transform: rotate(180deg); }
+
+    dl { margin: 0; font-size: 16px; line-height: 1.6; border-top: 1px solid var(--line); }
+    .tr { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    dt { font-weight: 500; }
+    dd { margin: 0; color: var(--muted); }
+
+    .bio { font-size: 17px; line-height: 1.72; color: var(--body); }
+    .bio .first { margin: 0; font-size: 22px; line-height: 1.5; color: var(--ink); }
+    .bio-rest { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
+    .bio-rest p { margin: 0; }
+
+    .plain { margin: 0; font-size: 16px; color: var(--body); }
+    .contact { display: flex; flex-wrap: wrap; gap: 12px 40px; }
+    .contact a { display: inline-flex; align-items: center; min-height: 44px; font-size: 18px; border-bottom: 1px solid rgba(175, 196, 232, .35); }
+    .contact a:hover { border-color: var(--accent); }
+
+    @media (max-width: 760px) {
+      .wrap { padding: 0 20px; }
+      .hero { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0 0 56px; }
+      .photo { order: -1; width: calc(100% + 40px); max-width: none; height: 440px; margin: 0 -20px -64px;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 55%, transparent 100%);
+                mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 55%, transparent 100%); }
+      h1 { font-size: 44px; }
+      .intro { font-size: 19px; }
+      .row { grid-template-columns: minmax(0, 1fr); gap: 20px; padding: 44px 0; }
+      .areas { grid-template-columns: minmax(0, 1fr); }
+      .tr { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wrap { animation: none; }
+      .more .chev { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="https://circo.io/">← circo.io</a>
+      <nav class="lang" aria-label="Language">
+        <a href="https://circo.io/bio/" hreflang="en" lang="en"{% if L == "en" %} aria-current="page"{% endif %}>EN</a>
+        <span class="sep" aria-hidden="true">|</span>
+        <a href="https://circo.io/bio/de/" hreflang="de" lang="de"{% if L == "de" %} aria-current="page"{% endif %}>DE</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>{{ d.name | escape }}</h1>
+          <p class="intro">{{ d.intro[L] | escape }}</p>
+        </div>
+        <img class="photo" src="/bio/portrait.jpg" alt="{{ d.portrait_alt[L] | escape }}" width="900" height="1196" loading="eager" fetchpriority="high" decoding="async">
+      </section>
+
+      <section class="row" aria-labelledby="focus">
+        <h2 id="focus">{{ d.labels.focus[L] | escape }}</h2>
+        <div>
+          <ul class="areas">
+            {%- for a in d.focus.areas[L] %}
+            <li>{{ a | escape }}</li>
+            {%- endfor %}
+          </ul>
+          <details class="more">
+            <summary><span class="t-open">{{ d.labels.expand[L] | escape }}</span><span class="t-close">{{ d.labels.collapse[L] | escape }}</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <ul class="details-list">
+              {%- for x in d.focus.details[L] %}
+              <li>{{ x | escape }}</li>
+              {%- endfor %}
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      <section class="row" aria-labelledby="track">
+        <h2 id="track">{{ d.labels.track[L] | escape }}</h2>
+        <dl>
+          {%- for t in d.track %}
+          <div class="tr"><dt>{{ t.label[L] | escape }}</dt><dd>{{ t.text[L] | escape }}</dd></div>
+          {%- endfor %}
+        </dl>
+      </section>
+
+      <section class="row" aria-labelledby="bio">
+        <h2 id="bio">{{ d.labels.bio[L] | escape }}</h2>
+        <div class="bio">
+          <p class="first">{{ d.bio.first[L] | escape }}</p>
+          <details class="more">
+            <summary><span class="t-open">{{ d.labels.expand[L] | escape }}</span><span class="t-close">{{ d.labels.collapse[L] | escape }}</span><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <div class="bio-rest">
+              {%- for p in d.bio.rest[L] %}
+              <p>{{ p | escape }}</p>
+              {%- endfor %}
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section class="row" aria-labelledby="languages">
+        <h2 id="languages">{{ d.labels.languages[L] | escape }}</h2>
+        <p class="plain">{{ d.languages[L] | escape }}</p>
+      </section>
+
+      <section class="row" aria-labelledby="contact">
+        <h2 id="contact">{{ d.labels.contact[L] | escape }}</h2>
+        <div class="contact">
+          <a href="mailto:{{ d.contact.email }}">{{ d.contact.email }}</a>
+          <a href="{{ d.contact.linkedin_url }}">{{ d.contact.linkedin_label }}</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

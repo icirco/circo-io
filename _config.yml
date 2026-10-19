@@ -1,0 +1,6 @@
+# GitHub Pages builds the site with Jekyll.
+# The homepage (index.html) has no front matter, so it is published as-is.
+# The /bio pages are built from _layouts/bio.html and _data/bio.yml.
+exclude:
+  - README-bio.md
+  - README.md
