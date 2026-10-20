@@ -194,9 +194,11 @@
 
     /* Print / Save as PDF: one clean black-on-white page with everything expanded */
     @media print {
-      @page { size: A4; margin: 16mm 18mm; }
+      @page { size: A4; margin: 0; }
       :root { --ink: #111; --body: #222; --muted: #444; --faint: #666; --label: #555; --line: #ccc; --accent: #111; }
       html, body { background: #fff; color: #111; }
+      body { padding: 16mm 18mm; }
+      .points li::before { background: none; border-top: .6pt solid #666; height: 0; }
       .col { max-width: none; padding: 0; animation: none; }
       header, .bio-btn, .copy, .more > summary, .area > summary .chev { display: none !important; }
       .hero { display: grid; grid-template-columns: minmax(0, 1fr) 30mm; gap: 8mm; align-items: start; padding: 0 0 6mm; }
