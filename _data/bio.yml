@@ -32,9 +32,6 @@ labels:
   bio:
     en: "Bio"
     de: "Bio"
-  languages:
-    en: "Languages"
-    de: "Sprachen"
   contact:
     en: "Contact"
     de: "Kontakt"
@@ -108,10 +105,6 @@ bio:
       - "Unter anderem war er Mitgründer von Proof of Impact, einer Plattform zur Verifizierung und Finanzierung von Wirkung im großen Maßstab, und von Triggerise, einem globalen Sozialunternehmen, das Menschen in unterversorgten Märkten Zugang zu Gesundheitsprodukten und -leistungen verschafft. Er beriet Intellectual Ventures, die IP- und Venture-Capital-Gesellschaft in Seattle, und ist weiterhin bei mehreren wirkungsorientierten Ventures aktiv: als Mitgründer, Berater, Investor oder Board-Mitglied."
       - "In früheren Lebensabschnitten leitete er außergewöhnliche, intensive Einsätze in einigen der schwierigsten Umfelder der Welt. Dazu zählten Dutzende humanitäre Missionen sowie Aufbau und Leitung von Länderprogrammen globaler Organisationen, etwa in Somalia oder Mosambik."
       - "Der ausgebildete Menschenrechtsjurist lebt in Wien."
-
-languages:
-  en: "English, German, Romanian, Portuguese"
-  de: "Englisch, Deutsch, Rumänisch, Portugiesisch"
 
 contact:
   email: "julian@circo.io"
