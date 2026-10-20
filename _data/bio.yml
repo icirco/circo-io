@@ -29,9 +29,6 @@ labels:
   focus:
     en: "Focus"
     de: "Fokus"
-  track:
-    en: "Track record"
-    de: "Track Record"
   bio:
     en: "Bio"
     de: "Bio"
@@ -47,52 +44,52 @@ labels:
   collapse:
     en: "Collapse"
     de: "Weniger anzeigen"
+  # Button under the intro that jumps to the bio
+  bio_button:
+    en: "Bio"
+    de: "Bio"
+  # Small link at the top that opens Print / Save as PDF
+  pdf:
+    en: "PDF"
+    de: "PDF"
+  copy_email:
+    en: "Copy email address"
+    de: "E-Mail-Adresse kopieren"
+  copied:
+    en: "Copied"
+    de: "Kopiert"
 
+# Focus: each area is clickable and opens its own points.
+# To move a point to another area, cut its line and paste it under that area's "points".
 focus:
-  # The three areas, always visible
-  areas:
-    en:
-      - "Digital health & AI"
-      - "Impact ventures & emerging markets"
-      - "Frontier tech & venture building"
-    de:
-      - "Digital Health & KI"
-      - "Impact-Ventures & Emerging Markets"
-      - "Frontier-Tech & Venture Building"
-  # Shown after clicking "Expand"
-  details:
-    en:
-      - "Regulated health markets and clinical evidence"
-      - "Building operations in low-infrastructure markets"
-      - "Scaling teams and P&L"
-      - "Getting to first capital and revenue"
-      - "Impact measurement and verification"
-    de:
-      - "Regulierte Gesundheitsmärkte und klinische Evidenz"
-      - "Aufbau von Operations in Märkten mit schwacher Infrastruktur"
-      - "Skalierung von Teams und P&L-Verantwortung"
-      - "Der Weg zu erstem Kapital und Umsatz"
-      - "Wirkungsmessung und -verifizierung"
-
-track:
-  - label:
-      en: "Founder"
-      de: "Gründer"
-    text:
-      en: "Hyfe, Proof of Impact, Triggerise"
-      de: "Hyfe, Proof of Impact, Triggerise"
-  - label:
-      en: "Venture & invention"
-      de: "Venture & Invention"
-    text:
-      en: "Advisor to Intellectual Ventures"
-      de: "Berater von Intellectual Ventures"
-  - label:
-      en: "Field leadership"
-      de: "Führung im Feld"
-    text:
-      en: "Country operations for PSI in Mozambique and Swaziland, up to 400 staff; IOM operations in Somalia; humanitarian missions across Africa, Asia, the Middle East and the Balkans"
-      de: "Länderprogramme von PSI in Mosambik und Swasiland mit bis zu 400 Mitarbeitenden; Aufbau der IOM-Präsenz in Somalia; humanitäre Einsätze in Afrika, Asien, im Nahen Osten und am Balkan"
+  - area:
+      en: "Digital health & AI"
+      de: "Digital Health & KI"
+    points:
+      en:
+        - "Regulated health markets and clinical evidence"
+      de:
+        - "Regulierte Gesundheitsmärkte und klinische Evidenz"
+  - area:
+      en: "Impact ventures & emerging markets"
+      de: "Impact-Ventures & Emerging Markets"
+    points:
+      en:
+        - "Building operations in low-infrastructure markets"
+        - "Impact measurement and verification"
+      de:
+        - "Aufbau von Operations in Märkten mit schwacher Infrastruktur"
+        - "Wirkungsmessung und -verifizierung"
+  - area:
+      en: "Frontier tech & venture building"
+      de: "Frontier-Tech & Venture Building"
+    points:
+      en:
+        - "Scaling teams and P&L"
+        - "Getting to first capital and revenue"
+      de:
+        - "Skalierung von Teams und P&L-Verantwortung"
+        - "Der Weg zu erstem Kapital und Umsatz"
 
 bio:
   # First sentence, always visible

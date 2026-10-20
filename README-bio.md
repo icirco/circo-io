@@ -13,7 +13,8 @@ Two pages, built automatically by GitHub Pages from one text file:
 
 Rules:
 - Keep the double quotes around each text, and keep the indentation (spaces) as it is.
-- To add a list item (e.g. another Focus detail or Bio paragraph), copy an existing `- "..."` line in the same list.
+- To add a list item (e.g. another Bio paragraph), copy an existing `- "..."` line in the same list.
+- Focus: each area has its own `points`. To move a point to another area, cut its line (English and German) and paste it under the other area's `points`.
 - The browser-tab title and Google snippet are under `meta:` at the top.
 
 If a commit breaks the file (e.g. a missing quote), the build fails, the live site keeps the previous version, and GitHub emails you. Fix the line and commit again.
