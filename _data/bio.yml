@@ -49,12 +49,13 @@ labels:
   pdf:
     en: "PDF"
     de: "PDF"
-  copy_email:
-    en: "Copy email address"
-    de: "E-Mail-Adresse kopieren"
-  copied:
-    en: "Copied"
-    de: "Kopiert"
+  # Screen-reader / hover labels for the contact icons in the header
+  linkedin:
+    en: "LinkedIn profile"
+    de: "LinkedIn-Profil"
+  email:
+    en: "Email"
+    de: "E-Mail"
 
 # Focus: each area is clickable and opens its own points.
 # To move a point to another area, cut its line and paste it under that area's "points".

@@ -165,17 +165,13 @@
     .points li { display: flex; gap: 12px; }
     .points li::before { content: ""; flex: none; width: 6px; height: 1px; margin-top: .75em; background: var(--faint); }
 
-    .plain { margin: 0; font-size: 17px; color: var(--body); }
-    .contact { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 32px; }
-    .contact a { display: inline-flex; align-items: center; min-height: 44px; font-size: 18px; border-bottom: 1px solid rgba(175, 196, 232, .35); }
-    .contact a:hover { border-color: var(--accent); }
-    .email { display: inline-flex; align-items: center; gap: 4px; }
-    .copy { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; min-height: 44px; padding: 0 8px; background: none; border: 0; color: var(--faint); font: 13px var(--mono); cursor: pointer; }
-    .copy[hidden] { display: none; }
-    .copy:hover { color: var(--accent); }
-    .copy .done { display: none; color: var(--accent); }
-    .copy.ok .done { display: inline; }
-    .copy.ok svg { display: none; }
+    /* Contact icons in the header */
+    .right { display: flex; align-items: center; gap: 12px; }
+    .icons { display: flex; align-items: center; gap: 2px; }
+    .icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 44px; border-radius: 8px; color: var(--muted); transition: color .2s ease, background .2s ease; }
+    .icon:hover { color: var(--accent); background: rgba(175, 196, 232, .08); }
+    .right .divider { width: 1px; height: 16px; background: var(--line); }
+    .print-contact { display: none; }
     main > section:last-child { padding-bottom: 104px; }
 
     @media (max-width: 640px) {
@@ -185,11 +181,13 @@
       h1 { font-size: 42px; }
       .intro { font-size: 18px; }
       section.sec { padding: 40px 0; }
+      .right { gap: 6px; }
+      .icon { width: 38px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       .col, h2, h2::before { animation: none; }
-      .chev, .bio-btn { transition: none; }
+      .chev, .bio-btn, .icon { transition: none; }
       ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
     }
 
@@ -201,7 +199,8 @@
       body { padding: 16mm 18mm; }
       .points li::before { background: none; border-top: .6pt solid #666; height: 0; }
       .col { max-width: none; padding: 0; animation: none; }
-      header, .bio-btn, .copy, .more > summary, .area > summary .chev { display: none !important; }
+      header, .bio-btn, .more > summary, .area > summary .chev { display: none !important; }
+      .print-contact { display: block; margin: 0; padding-top: 4mm; border-top: .5pt solid #ccc; font-size: 10pt; color: #222; }
       .hero { display: grid; grid-template-columns: minmax(0, 1fr) 30mm; gap: 8mm; align-items: start; padding: 0 0 6mm; }
       .photo { grid-column: 2; grid-row: 1; width: 30mm; height: 38mm; margin: 0; border-radius: 2mm; filter: none; -webkit-mask-image: none; mask-image: none; }
       .hero-text { grid-column: 1; grid-row: 1; margin: 0; gap: 3mm; }
@@ -215,9 +214,7 @@
       .areas, .area { border: 0; }
       .area > summary { min-height: 0; padding: 1.5mm 0 .5mm; font-size: 10.5pt; color: #111 !important; }
       .points { padding: 0 0 1.5mm; font-size: 9.5pt; gap: 1mm; }
-      .plain, .contact a { font-size: 10.5pt; }
-      .contact a { min-height: 0; border: 0; }
-      main > section:last-child { padding-bottom: 0; }
+      main > section:last-child { padding-bottom: 4mm; }
     }
   </style>
 </head>
@@ -225,13 +222,20 @@
   <div class="col">
     <header>
       <a class="back" href="https://circo.io/">← circo.io</a>
-      <nav class="tools" aria-label="Language">
-        <a href="https://circo.io/bio/" hreflang="en" lang="en"{% if L == "en" %} aria-current="page"{% endif %}>EN</a>
-        <span class="sep" aria-hidden="true">|</span>
-        <a href="https://circo.io/bio/de/" hreflang="de" lang="de"{% if L == "de" %} aria-current="page"{% endif %}>DE</a>
-        <span class="sep pdf-sep" aria-hidden="true" hidden>·</span>
-        <button type="button" class="pdf" hidden>{{ d.labels.pdf[L] | escape }}</button>
-      </nav>
+      <div class="right">
+        <nav class="icons" aria-label="{{ d.labels.contact[L] | escape }}">
+          <a class="icon" href="{{ d.contact.linkedin_url }}" aria-label="{{ d.labels.linkedin[L] | escape }}" title="{{ d.labels.linkedin[L] | escape }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8 10.5v6M8 7.5v.01M12 16.5v-6M12 13a2.5 2.5 0 0 1 5 0v3.5"/></svg></a>
+          <a class="icon" href="mailto:{{ d.contact.email }}" aria-label="{{ d.labels.email[L] | escape }}: {{ d.contact.email }}" title="{{ d.contact.email }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></svg></a>
+        </nav>
+        <span class="divider" aria-hidden="true"></span>
+        <nav class="tools" aria-label="Language">
+          <a href="https://circo.io/bio/" hreflang="en" lang="en"{% if L == "en" %} aria-current="page"{% endif %}>EN</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://circo.io/bio/de/" hreflang="de" lang="de"{% if L == "de" %} aria-current="page"{% endif %}>DE</a>
+          <span class="sep pdf-sep" aria-hidden="true" hidden>·</span>
+          <button type="button" class="pdf" hidden>{{ d.labels.pdf[L] | escape }}</button>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -273,16 +277,8 @@
         </div>
       </section>
 
-      <section class="sec" aria-labelledby="contact-h">
-        <h2 id="contact-h">{{ d.labels.contact[L] | escape }}</h2>
-        <div class="contact">
-          <span class="email">
-            <a href="mailto:{{ d.contact.email }}">{{ d.contact.email }}</a>
-            <button type="button" class="copy" data-email="{{ d.contact.email }}" aria-label="{{ d.labels.copy_email[L] | escape }}" title="{{ d.labels.copy_email[L] | escape }}" hidden><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="done" aria-live="polite">{{ d.labels.copied[L] | escape }}</span></button>
-          </span>
-          <a href="{{ d.contact.linkedin_url }}">{{ d.contact.linkedin_label }}</a>
-        </div>
-      </section>
+      <!-- Only shown in the printed / PDF version, where header icons don't apply -->
+      <p class="print-contact">{{ d.contact.email }} · {{ d.contact.linkedin_label }}</p>
     </main>
   </div>
 
@@ -302,18 +298,6 @@
       var all = document.querySelectorAll("details"), was = [];
       addEventListener("beforeprint", function () { was = [].map.call(all, function (d) { var o = d.open; d.open = true; return o; }); });
       addEventListener("afterprint", function () { [].forEach.call(all, function (d, i) { d.open = was[i]; }); });
-
-      // Copy email
-      var copy = document.querySelector(".copy");
-      if (navigator.clipboard) {
-        copy.hidden = false;
-        copy.addEventListener("click", function () {
-          navigator.clipboard.writeText(copy.dataset.email).then(function () {
-            copy.classList.add("ok");
-            setTimeout(function () { copy.classList.remove("ok"); }, 1800);
-          });
-        });
-      }
     })();
   </script>
 </body>
