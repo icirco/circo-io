@@ -14,6 +14,7 @@ Two pages, built automatically by GitHub Pages from one text file:
 Rules:
 - Keep the double quotes around each text, and keep the indentation (spaces) as it is.
 - To add a list item (e.g. another Bio paragraph), copy an existing `- "..."` line in the same list.
+- "Hyfe" in the bio paragraphs becomes a link to hyfe.com automatically (first mention per paragraph). Just write "Hyfe"; don't add links in the text.
 - Focus: each area has its own `points`. To move a point to another area, cut its line (English and German) and paste it under the other area's `points`.
 - The browser-tab title and Google snippet are under `meta:` at the top.
 
