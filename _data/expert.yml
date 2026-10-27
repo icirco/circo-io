@@ -1,0 +1,196 @@
+# All text for circo.io/expert/ (English) and circo.io/expert/de/ (German).
+#
+# How to edit: change the text between the double quotes, keep the quotes and the indentation.
+# Commit on GitHub; the pages update in 1-2 minutes.
+# LINKING RULE: /expert is linked only from outreach emails. Never add a link to it from
+# the homepage, /bio or anywhere else on the site (see README-expert.md).
+
+# Browser tab title and Google search snippet
+meta:
+  title:
+    en: "Julian Circo · Key expert: health, migration, digital innovation"
+    de: "Julian Circo · Key Expert: Gesundheit, Migration, digitale Innovation"
+  description:
+    en: "Programme design, implementation and evaluation in health, migration and innovation: donor-funded field operations, technology ventures, innovative finance."
+    de: "Konzeption, Umsetzung und Evaluierung von Programmen in Gesundheit, Migration und Innovation: Programme vor Ort, Technologieunternehmen, innovative Finanzierung."
+
+name: "Julian Circo"
+
+intro:
+  en: "Programme design, implementation and evaluation in health, migration, social inclusion and innovation. 14 years running large-scale donor-funded field operations. 12 years building technology ventures, including AI in regulated health markets, and working with innovative finance: blended finance, social impact bonds, performance-based financing."
+  de: "Konzeption, Umsetzung und Evaluierung von Programmen in Gesundheit, Migration, sozialer Inklusion und Innovation. 14 Jahre Leitung großer gebergefinanzierter Programme vor Ort. 12 Jahre Aufbau von Technologieunternehmen, darunter KI in regulierten Gesundheitsmärkten, und Arbeit mit innovativer Finanzierung: Blended Finance, Social Impact Bonds, Performance-Based Financing."
+
+portrait_alt:
+  en: "Julian Circo, portrait"
+  de: "Julian Circo, Porträt"
+
+# Section headings and small interface words
+labels:
+  roles:
+    en: "What I take on"
+    de: "Was ich übernehme"
+  field:
+    en: "Field record"
+    de: "Projekterfahrung"
+  funders:
+    en: "Funders"
+    de: "Fördergeber"
+  ventures:
+    en: "Ventures and frontier tech"
+    de: "Ventures und Frontier-Tech"
+  profile:
+    en: "Profile"
+    de: "Profil"
+  contact:
+    en: "Contact"
+    de: "Kontakt"
+  linkedin:
+    en: "LinkedIn profile"
+    de: "LinkedIn-Profil"
+  email:
+    en: "Email"
+    de: "E-Mail"
+  # The one link from this page to the mentoring profile, at the bottom
+  bio_link:
+    en: "Founder and mentoring profile"
+    de: "Gründer- und Mentoring-Profil"
+
+# CV download in the header. Keep "available: false" until the PDF is uploaded,
+# then upload the files to the paths below and change it to "true".
+cv:
+  available: false
+  label:
+    en: "CV"
+    de: "CV"
+  title:
+    en: "EU-format CV (PDF)"
+    de: "EU-Lebenslauf (PDF)"
+  file:
+    en: "/expert/Julian-Circo-CV-EU.pdf"
+    de: "/expert/de/Julian-Circo-CV-EU.pdf"
+
+roles:
+  en:
+    - "Team leader / key expert"
+    - "Key expert for digital and innovation components"
+    - "Evaluator, jury member and coach for EU innovation and startup funding (e.g. EIC, Horizon Europe)"
+    - "Concept-stage review of funding proposals"
+    - "Evaluation and monitoring"
+    - "Consortium partner (via Vienna-based GmbH)"
+  de:
+    - "Teamleiter / Key Expert"
+    - "Key Expert für digitale und Innovationskomponenten"
+    - "Evaluator, Jurymitglied und Coach für EU-Innovations- und Start-up-Förderung (z. B. EIC, Horizon Europe)"
+    - "Konzept-Check von Förderanträgen"
+    - "Evaluierung und Monitoring"
+    - "Konsortialpartner (über eine GmbH mit Sitz in Wien)"
+
+# Field record, newest first. To add an entry, copy a block starting with "- years:".
+# "full" (organisation's full name) is optional.
+field:
+  - years: "2011-2014"
+    org:
+      en: "PSI Mozambique"
+      de: "PSI Mosambik"
+    full:
+      en: "Population Services International"
+      de: "Population Services International"
+    role:
+      en: "Country Representative"
+      de: "Country Representative"
+    what:
+      en: "Health-product brands, health commodities, logistics, mobile surgery, social franchising"
+      de: "Marken für Gesundheitsprodukte, medizinische Versorgungsgüter, Logistik, mobile Chirurgie, Social Franchising"
+  - years: "2008-2010"
+    org:
+      en: "PSI Swaziland (Eswatini)"
+      de: "PSI Swasiland (Eswatini)"
+    role:
+      en: "Country Representative"
+      de: "Country Representative"
+    what:
+      en: "Health-product brands, health commodities, logistics, mobile surgery, social franchising"
+      de: "Marken für Gesundheitsprodukte, medizinische Versorgungsgüter, Logistik, mobile Chirurgie, Social Franchising"
+  - years: "2007-2008"
+    org:
+      en: "IOM Somalia"
+      de: "IOM Somalia"
+    full:
+      en: "International Organization for Migration"
+      de: "Internationale Organisation für Migration"
+    role:
+      en: "Head of Office"
+      de: "Head of Office"
+    what:
+      en: "Started up and scaled IOM operations across Somalia"
+      de: "Aufbau und Ausbau der IOM-Operationen in ganz Somalia"
+  - years: "2005-2007"
+    org:
+      en: "IOM Cambodia"
+      de: "IOM Kambodscha"
+    role:
+      en: "Project Lead"
+      de: "Projektleiter"
+    what:
+      en: "IDPs, migration, counter-trafficking"
+      de: "Binnenvertriebene, Migration, Bekämpfung von Menschenhandel"
+  - years: "2000-2005"
+    org:
+      en: "Humanitarian missions"
+      de: "Humanitäre Einsätze"
+    what:
+      en: "Cambodia, DR Congo, East Timor, Kenya, Syria, Turkmenistan, Western Balkans"
+      de: "Kambodscha, DR Kongo, Osttimor, Kenia, Syrien, Turkmenistan, Westbalkan"
+
+funders:
+  en: "Proposal, implementation and reporting for grants from the European Union, USAID/PEPFAR, the Global Fund, the Gates Foundation and the governments of the United Kingdom, the Netherlands, Denmark, Sweden and Switzerland. EU-funded projects in Cambodia, Mozambique and Eswatini."
+  de: "Antragstellung, Umsetzung und Reporting für Förderungen der Europäischen Union, von USAID/PEPFAR, dem Global Fund, der Gates Foundation sowie der Regierungen Großbritanniens, der Niederlande, Dänemarks, Schwedens und der Schweiz. EU-Projekte in Kambodscha, Mosambik und Eswatini."
+
+# Ventures, newest first. "url" is optional (makes the name a link).
+ventures:
+  - name: "Hyfe"
+    url: "https://hyfe.com/"
+    years: "2020-"
+    role:
+      en: "Co-founder"
+      de: "Mitgründer"
+    desc:
+      en: "AI-powered endpoint, currently global market leader in cough monitoring"
+      de: "KI-gestützter Endpunkt, derzeit Weltmarktführer im Husten-Monitoring"
+  - name: "Proof of Impact"
+    years: "2017-2020"
+    role:
+      en: "Co-founder"
+      de: "Mitgründer"
+    desc:
+      en: "Platform for verifying and financing impact at scale"
+      de: "Plattform zur Verifizierung und Finanzierung von Wirkung im großen Maßstab"
+  - name: "Triggerise"
+    years: "2014-2017"
+    role:
+      en: "Founder"
+      de: "Gründer"
+    desc:
+      en: "Global social enterprise connecting people in underserved markets with health products and services"
+      de: "Globales Sozialunternehmen, das Menschen in unterversorgten Märkten Zugang zu Gesundheitsprodukten und -leistungen verschafft"
+  - name: "Intellectual Ventures"
+    years: "2018-2020"
+    role:
+      en: "Advisor"
+      de: "Berater"
+    desc:
+      en: "Seattle-based IP and venture capital firm"
+      de: "IP- und Venture-Capital-Gesellschaft in Seattle"
+
+# Last row of the ventures list (no name, no years)
+ventures_note:
+  en: "Investor and board member in several startups, current and past"
+  de: "Investor und Board-Mitglied in mehreren Start-ups, aktuell und in der Vergangenheit"
+
+profile:
+  en: "Human rights lawyer by training · Based in Vienna · Native-level English, German, Romanian, Portuguese"
+  de: "Jurist mit Schwerpunkt Menschenrechte · In Wien ansässig · Deutsch, Englisch, Rumänisch, Portugiesisch auf muttersprachlichem Niveau"
+
+contact:
+  email: "julian@circo.io"
+  linkedin_url: "https://www.linkedin.com/in/icirco"

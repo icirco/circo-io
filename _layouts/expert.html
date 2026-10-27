@@ -1,0 +1,303 @@
+{%- assign L = page.lang -%}
+{%- assign d = site.data.expert -%}
+{%- if L == "de" -%}{%- assign self_url = "https://circo.io/expert/de/" -%}{%- assign bio_url = "https://circo.io/bio/de/" -%}{%- assign og_locale = "de_AT" -%}{%- assign og_alt = "en_US" -%}
+{%- else -%}{%- assign self_url = "https://circo.io/expert/" -%}{%- assign bio_url = "https://circo.io/bio/" -%}{%- assign og_locale = "en_US" -%}{%- assign og_alt = "de_AT" -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ L }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ d.meta.title[L] | escape }}</title>
+  <meta name="description" content="{{ d.meta.description[L] | escape }}">
+  <link rel="canonical" href="{{ self_url }}">
+  <link rel="alternate" hreflang="en" href="https://circo.io/expert/">
+  <link rel="alternate" hreflang="de" href="https://circo.io/expert/de/">
+  <link rel="alternate" hreflang="x-default" href="https://circo.io/expert/">
+  <meta name="author" content="{{ d.name | escape }}">
+  <meta name="theme-color" content="#0E0F10">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="{{ self_url }}">
+  <meta property="og:site_name" content="circo.io">
+  <meta property="og:locale" content="{{ og_locale }}">
+  <meta property="og:locale:alternate" content="{{ og_alt }}">
+  <meta property="og:title" content="{{ d.meta.title[L] | escape }}">
+  <meta property="og:description" content="{{ d.meta.description[L] | escape }}">
+  <meta property="og:image" content="https://circo.io/expert/og-{{ L }}.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ d.name | escape }}">
+  <meta property="profile:first_name" content="Julian">
+  <meta property="profile:last_name" content="Circo">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "{{ self_url }}",
+    "inLanguage": "{{ L }}",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://circo.io/#me",
+      "name": "Julian Circo",
+      "alternateName": ["Iulian Circo"],
+      "givenName": "Julian",
+      "familyName": "Circo",
+      "jobTitle": "Co-founder",
+      "description": {{ d.intro[L] | jsonify }},
+      "url": "https://circo.io/",
+      "image": "https://circo.io/bio/portrait.jpg",
+      "email": "mailto:{{ d.contact.email }}",
+      "address": { "@type": "PostalAddress", "addressLocality": "Vienna", "addressCountry": "AT" },
+      "knowsLanguage": ["en", "de", "ro", "pt"],
+      "knowsAbout": ["Health systems", "Global health", "Migration", "Programme evaluation", "Digital health", "Innovative finance", "Blended finance", "Social impact bonds", "Performance-based financing"],
+      "worksFor": { "@type": "Organization", "name": "Hyfe", "url": "https://hyfe.com/" },
+      "sameAs": ["https://www.linkedin.com/in/icirco"]
+    }
+  }
+  </script>
+
+  <style>
+    @font-face { font-family: "Geist"; src: url("/assets/fonts/geist.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/geist-mono.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+    /* Same tokens as /bio (_layouts/bio.html) - keep the two in sync */
+    :root {
+      --bg: #0E0F10;
+      --ink: #EDEBE6;
+      --body: #CFCCC6;
+      --muted: #A19E97;
+      --faint: #8C8982;
+      --line: rgba(255, 255, 255, .08);
+      --accent: #AFC4E8;
+      --label: #8FA3C2;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+    }
+    @view-transition { navigation: auto; }
+    ::view-transition-old(root), ::view-transition-new(root) { animation-duration: .25s; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { background: var(--bg); color-scheme: dark; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+    h1, h2 { text-wrap: balance; }
+    p, li, dd { text-wrap: pretty; }
+
+    .col { max-width: 720px; margin: 0 auto; padding: 0 32px; animation: in .2s ease-out both; }
+    @keyframes in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; font-family: var(--mono); font-size: 13px; }
+    header .back { color: var(--muted); display: inline-flex; align-items: center; min-height: 44px; }
+    .right { display: flex; align-items: center; gap: 12px; }
+    .icons { display: flex; align-items: center; gap: 2px; }
+    .icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 44px; border-radius: 8px; color: var(--muted); transition: color .2s ease, background .2s ease; }
+    .icon:hover { color: var(--accent); background: rgba(175, 196, 232, .08); }
+    .right .divider { width: 1px; height: 16px; background: var(--line); }
+    .tools { display: flex; gap: 10px; align-items: center; }
+    .tools a { color: var(--faint); display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px; }
+    .tools a[aria-current="page"] { color: var(--accent); }
+    .tools a:hover { color: var(--ink); }
+    .tools .sep { color: #4A4A48; }
+
+    .hero { display: flex; gap: 24px; align-items: flex-start; padding: 40px 0 48px; }
+    .photo { width: 88px; height: 110px; flex: none; object-fit: cover; object-position: 50% 18%; border-radius: 12px; filter: saturate(.75) brightness(.92); box-shadow: 0 0 0 1px var(--line); }
+    h1 { margin: 0 0 14px; font-size: 44px; font-weight: 500; letter-spacing: -.035em; line-height: 1; }
+    .intro { margin: 0; font-size: 18px; line-height: 1.5; color: var(--body); }
+
+    section.sec { padding: 40px 0; border-top: 1px solid var(--line); }
+    h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-family: var(--mono); font-weight: 400; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--label); }
+    h2::before { content: ""; display: block; height: 1px; width: 24px; background: var(--accent); opacity: .7; }
+    @supports (animation-timeline: view()) {
+      h2 { animation: label-in linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+      h2::before { animation: line-in linear both; animation-timeline: view(); animation-range: entry 10% cover 35%; }
+    }
+    @keyframes label-in { from { opacity: .2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @keyframes line-in { from { width: 0; opacity: 0; } to { width: 24px; opacity: .7; } }
+
+    .roles { list-style: none; margin: 0; padding: 0; font-size: 17px; line-height: 1.6; }
+    .roles li { display: inline; }
+    .roles li + li::before { content: " · "; color: var(--faint); }
+    .text { margin: 0; font-size: 16px; line-height: 1.65; color: var(--body); }
+
+    /* Field record: years | rail | entry */
+    .tl { list-style: none; margin: 0; padding: 0; }
+    .tl li { display: grid; grid-template-columns: 104px 1px minmax(0, 1fr); column-gap: 22px; padding: 0 0 26px; }
+    .tl li:last-child { padding-bottom: 0; }
+    .tl .yr { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 3px; font-variant-numeric: tabular-nums; }
+    .tl .rail { position: relative; background: rgba(255, 255, 255, .1); }
+    .tl .rail::before { content: ""; position: absolute; left: -3px; top: 8px; width: 7px; height: 7px; border-radius: 50%; background: var(--bg); box-shadow: 0 0 0 1px var(--label); }
+    .tl .org { font-size: 17px; font-weight: 500; line-height: 1.35; }
+    .tl .full { font-size: 13px; color: var(--faint); margin-top: 1px; }
+    .tl .role { font-size: 15px; color: var(--body); margin-top: 3px; }
+    .tl .what { font-size: 15px; line-height: 1.55; color: var(--muted); margin-top: 4px; }
+
+    /* Ventures as rows */
+    .vt { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+    .vt li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .vt .n { font-size: 16px; font-weight: 500; }
+    .vt .n a { border-bottom: 1px solid rgba(175, 196, 232, .4); }
+    .vt .n a:hover { border-color: var(--accent); }
+    .vt .r { color: var(--muted); font-weight: 400; }
+    .vt .y { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+    .vt .d { grid-column: 1 / -1; font-size: 14px; line-height: 1.5; color: var(--faint); }
+    .vt .note { grid-column: 1 / -1; font-weight: 400; color: var(--body); }
+
+    .end { margin: 0; padding: 28px 0 96px; border-top: 1px solid var(--line); font-size: 15px; }
+    .end a { color: var(--muted); }
+    .end a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .col { padding: 0 20px; }
+      .hero { flex-direction: column; gap: 18px; padding: 24px 0 36px; }
+      h1 { font-size: 36px; }
+      .intro { font-size: 17px; }
+      section.sec { padding: 36px 0; }
+      .tl li { grid-template-columns: 1px minmax(0, 1fr); column-gap: 18px; }
+      .tl .yr { grid-column: 2; grid-row: 1; padding: 0 0 2px; }
+      .tl .rail { grid-column: 1; grid-row: 1 / span 2; }
+      .tl .body { grid-column: 2; }
+      .right { gap: 6px; }
+      .icon { width: 38px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .col, h2, h2::before { animation: none; }
+      .icon { transition: none; }
+      ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+    }
+
+    /* Print / Save as PDF: light, two A4 pages or fewer, link URLs shown */
+    @media print {
+      @page { size: A4; margin: 0; }
+      :root { --ink: #111; --body: #222; --muted: #444; --faint: #666; --label: #555; --line: #ccc; --accent: #111; }
+      html, body { background: #fff; color: #111; }
+      body { padding: 14mm 18mm; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+      .col { max-width: none; padding: 0; animation: none; }
+      header { display: none; }
+      .hero { padding: 0 0 4mm; gap: 6mm; }
+      .photo { width: 22mm; height: 28mm; filter: none; border-radius: 2mm; }
+      h1 { font-size: 22pt; margin-bottom: 3mm; }
+      .intro { font-size: 10pt; line-height: 1.45; }
+      section.sec { padding: 3mm 0; }
+      h2 { margin: 0 0 2.5mm; font-size: 8pt; animation: none !important; }
+      h2::before { display: none; }
+      .roles { font-size: 10pt; }
+      .text { font-size: 10pt; line-height: 1.5; }
+      .tl li { padding-bottom: 2mm; break-inside: avoid; grid-template-columns: 24mm 1px minmax(0, 1fr); column-gap: 5mm; }
+      .tl .rail { background: #ccc; }
+      .tl .rail::before { background: #fff; box-shadow: 0 0 0 .6pt #555; }
+      .tl .yr { font-size: 9pt; padding-top: 1pt; }
+      .tl .org { font-size: 10.5pt; }
+      .tl .full, .tl .role, .tl .what { font-size: 9.5pt; }
+      .vt li { padding: 1.5mm 0; break-inside: avoid; }
+      .vt .n { font-size: 10.5pt; }
+      .vt .y { font-size: 9pt; }
+      .vt .d { font-size: 9pt; }
+      .vt .n a { border: 0; }
+      .vt .n a::after, .end a::after { content: " (" attr(href) ")"; font-weight: 400; color: #555; font-size: 9pt; }
+      .end { padding: 3mm 0 0; font-size: 10pt; }
+      .print-contact { display: block !important; margin: 0 0 3mm; font-size: 10pt; }
+    }
+    .print-contact { display: none; }
+  </style>
+</head>
+<body>
+  <div class="col">
+    <header>
+      <a class="back" href="https://circo.io/">← circo.io</a>
+      <div class="right">
+        <nav class="icons" aria-label="{{ d.labels.contact[L] | escape }}">
+          <a class="icon" href="{{ d.contact.linkedin_url }}" aria-label="{{ d.labels.linkedin[L] | escape }}" title="{{ d.labels.linkedin[L] | escape }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3.5"/><path d="M8 10.5v6M8 7.5v.01M12 16.5v-6M12 13a2.5 2.5 0 0 1 5 0v3.5"/></svg></a>
+          <a class="icon" href="mailto:{{ d.contact.email }}" aria-label="{{ d.labels.email[L] | escape }}: {{ d.contact.email }}" title="{{ d.contact.email }}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M4 7.5l8 6 8-6"/></svg></a>
+        </nav>
+        <span class="divider" aria-hidden="true"></span>
+        <nav class="tools" aria-label="Language">
+          <a href="https://circo.io/expert/" hreflang="en" lang="en"{% if L == "en" %} aria-current="page"{% endif %}>EN</a>
+          <span class="sep" aria-hidden="true">|</span>
+          <a href="https://circo.io/expert/de/" hreflang="de" lang="de"{% if L == "de" %} aria-current="page"{% endif %}>DE</a>
+          {%- if d.cv.available %}
+          <span class="sep" aria-hidden="true">·</span>
+          <a href="{{ d.cv.file[L] }}" title="{{ d.cv.title[L] | escape }}" download>{{ d.cv.label[L] | escape }}</a>
+          {%- endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <img class="photo" src="/bio/portrait.jpg" alt="{{ d.portrait_alt[L] | escape }}" width="900" height="1196" loading="eager" fetchpriority="high" decoding="async">
+        <div>
+          <h1>{{ d.name | escape }}</h1>
+          <p class="intro">{{ d.intro[L] | escape }}</p>
+        </div>
+      </section>
+
+      <!-- Printed version only: header icons don't exist on paper -->
+      <p class="print-contact">{{ d.contact.email }} · {{ d.contact.linkedin_url | remove: "https://www." }}</p>
+
+      <section class="sec" aria-labelledby="roles-h">
+        <h2 id="roles-h">{{ d.labels.roles[L] | escape }}</h2>
+        <ul class="roles">
+          {%- for r in d.roles[L] %}
+          <li>{{ r | escape }}</li>
+          {%- endfor %}
+        </ul>
+      </section>
+
+      <section class="sec" aria-labelledby="field-h">
+        <h2 id="field-h">{{ d.labels.field[L] | escape }}</h2>
+        <ol class="tl">
+          {%- for e in d.field %}
+          <li>
+            <span class="yr">{{ e.years | replace: "-", "–" }}</span>
+            <span class="rail" aria-hidden="true"></span>
+            <div class="body">
+              <div class="org">{{ e.org[L] | escape }}</div>
+              {%- if e.full %}<div class="full">{{ e.full[L] | escape }}</div>{% endif %}
+              {%- if e.role %}<div class="role">{{ e.role[L] | escape }}</div>{% endif %}
+              <div class="what">{{ e.what[L] | escape }}</div>
+            </div>
+          </li>
+          {%- endfor %}
+        </ol>
+      </section>
+
+      <section class="sec" aria-labelledby="funders-h">
+        <h2 id="funders-h">{{ d.labels.funders[L] | escape }}</h2>
+        <p class="text">{{ d.funders[L] | escape }}</p>
+      </section>
+
+      <section class="sec" aria-labelledby="ventures-h">
+        <h2 id="ventures-h">{{ d.labels.ventures[L] | escape }}</h2>
+        <ul class="vt">
+          {%- for v in d.ventures %}
+          <li>
+            <span class="n">{% if v.url %}<a href="{{ v.url }}">{{ v.name | escape }}</a>{% else %}{{ v.name | escape }}{% endif %} <span class="r">· {{ v.role[L] | escape }}</span></span>
+            <span class="y">{{ v.years | replace: "-", "–" }}</span>
+            <span class="d">{{ v.desc[L] | escape }}</span>
+          </li>
+          {%- endfor %}
+          {%- if d.ventures_note %}
+          <li><span class="n note">{{ d.ventures_note[L] | escape }}</span></li>
+          {%- endif %}
+        </ul>
+      </section>
+
+      <section class="sec" aria-labelledby="profile-h">
+        <h2 id="profile-h">{{ d.labels.profile[L] | escape }}</h2>
+        <p class="text">{{ d.profile[L] | escape }}</p>
+      </section>
+    </main>
+
+    <p class="end"><a href="{{ bio_url }}">{{ d.labels.bio_link[L] | escape }} →</a></p>
+  </div>
+</body>
+</html>

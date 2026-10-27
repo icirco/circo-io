@@ -3,4 +3,5 @@
 # The /bio pages are built from _layouts/bio.html and _data/bio.yml.
 exclude:
   - README-bio.md
+  - README-expert.md
   - README.md
