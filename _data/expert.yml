@@ -17,8 +17,8 @@ meta:
 name: "Julian Circo"
 
 intro:
-  en: "Programme design, implementation and evaluation in health, migration, social inclusion and innovation. 14 years running large-scale donor-funded field operations. 12 years building technology ventures and working with innovative finance: blended finance, social impact bonds, performance-based financing."
-  de: "Konzeption, Umsetzung und Evaluierung von Programmen in Gesundheit, Migration, sozialer Inklusion und Innovation. 14 Jahre Leitung großer gebergefinanzierter Programme vor Ort. 12 Jahre Aufbau von Technologieunternehmen und Arbeit mit innovativer Finanzierung: Blended Finance, Social Impact Bonds, Performance-Based Financing."
+  en: "Programme design, implementation and evaluation in health, migration, social inclusion and innovation. 14 years running large-scale donor-funded field operations. 12 years building technology ventures, including AI in regulated health markets, and working with innovative finance: blended finance, social impact bonds, performance-based financing."
+  de: "Konzeption, Umsetzung und Evaluierung von Programmen in Gesundheit, Migration, sozialer Inklusion und Innovation. 14 Jahre Leitung großer gebergefinanzierter Programme vor Ort. 12 Jahre Aufbau von Technologieunternehmen, darunter KI in regulierten Gesundheitsmärkten, und Arbeit mit innovativer Finanzierung: Blended Finance, Social Impact Bonds, Performance-Based Financing."
 
 portrait_alt:
   en: "Julian Circo, portrait"
@@ -73,12 +73,14 @@ roles:
   en:
     - "Team leader / key expert"
     - "Key expert for digital and innovation components"
+    - "Evaluator, jury member and coach for EU innovation and startup funding (e.g. EIC, Horizon Europe)"
     - "Concept-stage review of funding proposals"
     - "Evaluation and monitoring"
     - "Consortium partner (via Vienna-based GmbH)"
   de:
     - "Teamleiter / Key Expert"
     - "Key Expert für digitale und Innovationskomponenten"
+    - "Evaluator, Jurymitglied und Coach für EU-Innovations- und Start-up-Förderung (z. B. EIC, Horizon Europe)"
     - "Konzept-Check von Förderanträgen"
     - "Evaluierung und Monitoring"
     - "Konsortialpartner (über eine GmbH mit Sitz in Wien)"
@@ -179,6 +181,11 @@ ventures:
     desc:
       en: "Seattle-based IP and venture capital firm"
       de: "IP- und Venture-Capital-Gesellschaft in Seattle"
+
+# Last row of the ventures list (no name, no years)
+ventures_note:
+  en: "Investor and board member in several startups, current and past"
+  de: "Investor und Board-Mitglied in mehreren Start-ups, aktuell und in der Vergangenheit"
 
 profile:
   en: "Human rights lawyer by training · Based in Vienna · Native-level English, German, Romanian, Portuguese"

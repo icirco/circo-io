@@ -149,6 +149,7 @@
     .vt .r { color: var(--muted); font-weight: 400; }
     .vt .y { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
     .vt .d { grid-column: 1 / -1; font-size: 14px; line-height: 1.5; color: var(--faint); }
+    .vt .note { grid-column: 1 / -1; font-weight: 400; color: var(--body); }
 
     .end { margin: 0; padding: 28px 0 96px; border-top: 1px solid var(--line); font-size: 15px; }
     .end a { color: var(--muted); }
@@ -284,6 +285,9 @@
             <span class="d">{{ v.desc[L] | escape }}</span>
           </li>
           {%- endfor %}
+          {%- if d.ventures_note %}
+          <li><span class="n note">{{ d.ventures_note[L] | escape }}</span></li>
+          {%- endif %}
         </ul>
       </section>
 
