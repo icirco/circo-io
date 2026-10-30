@@ -140,16 +140,17 @@
     .tl .role { font-size: 15px; color: var(--body); margin-top: 3px; }
     .tl .what { font-size: 15px; line-height: 1.55; color: var(--muted); margin-top: 4px; }
 
-    /* Ventures as rows */
-    .vt { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-    .vt li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
-    .vt .n { font-size: 16px; font-weight: 500; }
-    .vt .n a { border-bottom: 1px solid rgba(175, 196, 232, .4); }
-    .vt .n a:hover { border-color: var(--accent); }
-    .vt .r { color: var(--muted); font-weight: 400; }
-    .vt .y { font-family: var(--mono); font-size: 13px; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
-    .vt .d { grid-column: 1 / -1; font-size: 14px; line-height: 1.5; color: var(--faint); }
-    .vt .note { grid-column: 1 / -1; font-weight: 400; color: var(--body); }
+    /* Venture names that link out (e.g. Hyfe) */
+    .tl .org-link { border-bottom: 1px solid rgba(175, 196, 232, .4); }
+    .tl .org-link:hover { border-color: var(--accent); }
+    /* Line under the ventures timeline, aligned with the entries */
+    .tl-note { margin: 4px 0 0 149px; font-size: 15px; line-height: 1.55; color: var(--body); }
+
+    /* Innovative finance: instrument | where */
+    .fin { margin: 0; border-top: 1px solid var(--line); }
+    .fin div { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 4px 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .fin dt { font-size: 16px; font-weight: 500; }
+    .fin dd { margin: 0; font-size: 15px; color: var(--muted); }
 
     .end { margin: 0; padding: 28px 0 96px; border-top: 1px solid var(--line); font-size: 15px; }
     .end a { color: var(--muted); }
@@ -165,6 +166,8 @@
       .tl .yr { grid-column: 2; grid-row: 1; padding: 0 0 2px; }
       .tl .rail { grid-column: 1; grid-row: 1 / span 2; }
       .tl .body { grid-column: 2; }
+      .tl-note { margin-left: 19px; }
+      .fin div { grid-template-columns: minmax(0, 1fr); }
       .right { gap: 6px; }
       .icon { width: 38px; }
     }
@@ -197,12 +200,12 @@
       .tl .yr { font-size: 9pt; padding-top: 1pt; }
       .tl .org { font-size: 10.5pt; }
       .tl .full, .tl .role, .tl .what { font-size: 9.5pt; }
-      .vt li { padding: 1.5mm 0; break-inside: avoid; }
-      .vt .n { font-size: 10.5pt; }
-      .vt .y { font-size: 9pt; }
-      .vt .d { font-size: 9pt; }
-      .vt .n a { border: 0; }
-      .vt .n a::after, .end a::after { content: " (" attr(href) ")"; font-weight: 400; color: #555; font-size: 9pt; }
+      .tl .org-link { border: 0; }
+      .tl-note { margin: 0 0 0 34.3mm; font-size: 9.5pt; }
+      .fin div { padding: 1.5mm 0; break-inside: avoid; grid-template-columns: 55mm minmax(0, 1fr); }
+      .fin dt { font-size: 10.5pt; }
+      .fin dd { font-size: 9.5pt; }
+      .tl .org-link::after, .end a::after { content: " (" attr(href) ")"; font-weight: 400; color: #555; font-size: 9pt; }
       .end { padding: 3mm 0 0; font-size: 10pt; }
       .print-contact { display: block !important; margin: 0 0 3mm; font-size: 10pt; }
     }
@@ -252,6 +255,27 @@
         </ul>
       </section>
 
+      <!-- Ventures and field record share one timeline style, newest first -->
+      <section class="sec" aria-labelledby="ventures-h">
+        <h2 id="ventures-h">{{ d.labels.ventures[L] | escape }}</h2>
+        <ol class="tl">
+          {%- for v in d.ventures %}
+          <li>
+            <span class="yr">{{ v.years | replace: "-", "–" }}</span>
+            <span class="rail" aria-hidden="true"></span>
+            <div class="body">
+              <div class="org">{% if v.url %}<a class="org-link" href="{{ v.url }}">{{ v.name | escape }}</a>{% else %}{{ v.name | escape }}{% endif %}</div>
+              <div class="role">{{ v.role[L] | escape }}</div>
+              <div class="what">{{ v.desc[L] | escape }}</div>
+            </div>
+          </li>
+          {%- endfor %}
+        </ol>
+        {%- if d.ventures_note %}
+        <p class="tl-note">{{ d.ventures_note[L] | escape }}</p>
+        {%- endif %}
+      </section>
+
       <section class="sec" aria-labelledby="field-h">
         <h2 id="field-h">{{ d.labels.field[L] | escape }}</h2>
         <ol class="tl">
@@ -275,20 +299,13 @@
         <p class="text">{{ d.funders[L] | escape }}</p>
       </section>
 
-      <section class="sec" aria-labelledby="ventures-h">
-        <h2 id="ventures-h">{{ d.labels.ventures[L] | escape }}</h2>
-        <ul class="vt">
-          {%- for v in d.ventures %}
-          <li>
-            <span class="n">{% if v.url %}<a href="{{ v.url }}">{{ v.name | escape }}</a>{% else %}{{ v.name | escape }}{% endif %} <span class="r">· {{ v.role[L] | escape }}</span></span>
-            <span class="y">{{ v.years | replace: "-", "–" }}</span>
-            <span class="d">{{ v.desc[L] | escape }}</span>
-          </li>
+      <section class="sec" aria-labelledby="finance-h">
+        <h2 id="finance-h">{{ d.labels.finance[L] | escape }}</h2>
+        <dl class="fin">
+          {%- for f in d.finance %}
+          <div><dt>{{ f.instrument[L] | escape }}</dt><dd>{{ f.where[L] | escape }}</dd></div>
           {%- endfor %}
-          {%- if d.ventures_note %}
-          <li><span class="n note">{{ d.ventures_note[L] | escape }}</span></li>
-          {%- endif %}
-        </ul>
+        </dl>
       </section>
 
       <section class="sec" aria-labelledby="profile-h">

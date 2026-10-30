@@ -51,6 +51,9 @@ labels:
     en: "Email"
     de: "E-Mail"
   # The one link from this page to the mentoring profile, at the bottom
+  finance:
+    en: "Innovative finance"
+    de: "Innovative Finanzierung"
   bio_link:
     en: "Founder and mentoring profile"
     de: "Gründer- und Mentoring-Profil"
@@ -58,13 +61,13 @@ labels:
 # CV download in the header. Keep "available: false" until the PDF is uploaded,
 # then upload the files to the paths below and change it to "true".
 cv:
-  available: false
+  available: true
   label:
     en: "CV"
     de: "CV"
   title:
-    en: "EU-format CV (PDF)"
-    de: "EU-Lebenslauf (PDF)"
+    en: "One-page CV (PDF, 320 KB)"
+    de: "Einseitiger Lebenslauf (PDF, 330 KB)"
   file:
     en: "/expert/Julian-Circo-CV-EU.pdf"
     de: "/expert/de/Julian-Circo-CV-EU.pdf"
@@ -146,7 +149,7 @@ funders:
   en: "Proposal, implementation and reporting for grants from the European Union, USAID/PEPFAR, the Global Fund, the Gates Foundation and the governments of the United Kingdom, the Netherlands, Denmark, Sweden and Switzerland. EU-funded projects in Cambodia, Mozambique and Eswatini."
   de: "Antragstellung, Umsetzung und Reporting für Förderungen der Europäischen Union, von USAID/PEPFAR, dem Global Fund, der Gates Foundation sowie der Regierungen Großbritanniens, der Niederlande, Dänemarks, Schwedens und der Schweiz. EU-Projekte in Kambodscha, Mosambik und Eswatini."
 
-# Ventures, newest first. "url" is optional (makes the name a link).
+# Ventures, newest start year first (shown above the field record). "url" is optional (makes the name a link).
 ventures:
   - name: "Hyfe"
     url: "https://hyfe.com/"
@@ -157,6 +160,14 @@ ventures:
     desc:
       en: "AI-powered endpoint, currently global market leader in cough monitoring"
       de: "KI-gestützter Endpunkt, derzeit Weltmarktführer im Husten-Monitoring"
+  - name: "Intellectual Ventures"
+    years: "2018-2020"
+    role:
+      en: "Advisor"
+      de: "Berater"
+    desc:
+      en: "Seattle-based IP and venture capital firm"
+      de: "IP- und Venture-Capital-Gesellschaft in Seattle"
   - name: "Proof of Impact"
     years: "2017-2020"
     role:
@@ -173,23 +184,82 @@ ventures:
     desc:
       en: "Global social enterprise connecting people in underserved markets with health products and services"
       de: "Globales Sozialunternehmen, das Menschen in unterversorgten Märkten Zugang zu Gesundheitsprodukten und -leistungen verschafft"
-  - name: "Intellectual Ventures"
-    years: "2018-2020"
-    role:
-      en: "Advisor"
-      de: "Berater"
-    desc:
-      en: "Seattle-based IP and venture capital firm"
-      de: "IP- und Venture-Capital-Gesellschaft in Seattle"
 
 # Last row of the ventures list (no name, no years)
 ventures_note:
   en: "Investor and board member in several startups, current and past"
   de: "Investor und Board-Mitglied in mehreren Start-ups, aktuell und in der Vergangenheit"
 
+# Innovative finance: instrument, then where it was used. Shown on the page and in the CV.
+finance:
+  - instrument:
+      en: "Blended finance"
+      de: "Blended Finance"
+    where:
+      en: "Eswatini, Mozambique · Proof of Impact"
+      de: "Eswatini, Mosambik · Proof of Impact"
+  - instrument:
+      en: "Performance-based financing"
+      de: "Performance-Based Financing"
+    where:
+      en: "Mozambique · Triggerise · Proof of Impact"
+      de: "Mosambik · Triggerise · Proof of Impact"
+  - instrument:
+      en: "Real-time impact verification"
+      de: "Echtzeit-Wirkungsverifizierung"
+    where:
+      en: "Triggerise · Proof of Impact"
+      de: "Triggerise · Proof of Impact"
+  - instrument:
+      en: "Social impact bonds"
+      de: "Social Impact Bonds"
+    where:
+      en: "Proof of Impact"
+      de: "Proof of Impact"
+
 profile:
-  en: "Human rights lawyer by training · Based in Vienna · Native-level English, German, Romanian, Portuguese"
-  de: "Jurist mit Schwerpunkt Menschenrechte · In Wien ansässig · Deutsch, Englisch, Rumänisch, Portugiesisch auf muttersprachlichem Niveau"
+  en: "Human rights lawyer by training · Based in Vienna · Native-level English, German, Romanian; fluent Portuguese"
+  de: "Jurist mit Schwerpunkt Menschenrechte · In Wien ansässig · Deutsch, Englisch, Rumänisch auf muttersprachlichem Niveau; Portugiesisch fließend"
+
+# Only used in the CV PDF (built with tools/build_cv.py), not shown on the web page
+cv_only:
+  labels:
+    countries:
+      en: "Countries"
+      de: "Länder"
+    education:
+      en: "Education"
+      de: "Ausbildung"
+    languages:
+      en: "Languages"
+      de: "Sprachen"
+    scale:
+      en: "Scale 1–5 (5 = excellent)"
+      de: "Skala 1–5 (5 = ausgezeichnet)"
+    footer:
+      en: "Julian Circo · CV"
+      de: "Julian Circo · Lebenslauf"
+    location:
+      en: "Vienna, Austria"
+      de: "Wien, Österreich"
+  phone: "+43 664 5934410"
+  countries:
+    en: "South Africa, Mozambique, Eswatini, Somalia, Cambodia, Kenya, DR Congo, East Timor, Syria, Turkmenistan, Western Balkans, Romania, Austria"
+    de: "Südafrika, Mosambik, Eswatini, Somalia, Kambodscha, Kenia, DR Kongo, Osttimor, Syrien, Turkmenistan, Westbalkan, Rumänien, Österreich"
+  education:
+    degree: "Master of Laws (LL.M.)"
+    field: "International Protection of Human Rights"
+    school: "Central European University"
+    year: "2001"
+  languages:
+    - name: { en: "English", de: "Englisch" }
+      level: 5
+    - name: { en: "German", de: "Deutsch" }
+      level: 5
+    - name: { en: "Romanian", de: "Rumänisch" }
+      level: 5
+    - name: { en: "Portuguese", de: "Portugiesisch" }
+      level: 4
 
 contact:
   email: "julian@circo.io"

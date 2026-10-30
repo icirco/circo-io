@@ -33,10 +33,9 @@ Write years as `2011-2014`; the page shows them with a proper dash.
 
 ## The CV download
 
-The **CV** link in the header stays hidden until the PDF exists:
+The **CV** link in the header downloads a one-page PDF: `expert/Julian-Circo-CV-EU.pdf` (English) and `expert/de/Julian-Circo-CV-EU.pdf` (German).
 
-1. Upload the English PDF as `expert/Julian-Circo-CV-EU.pdf` and the German one as `expert/de/Julian-Circo-CV-EU.pdf` (Add file › Upload files, in those folders). If there's only one version, upload the same file to both places.
-2. In `_data/expert.yml`, change `available: false` to `available: true` under `cv:`.
+The CV is generated from the same text file as this page (`_data/expert.yml`), plus the CV-only items under `cv_only:` (countries, education, languages, phone). After changing the text, regenerate the PDFs on the computer with `tools/build_cv.py` in the project folder, then commit the two PDFs. To hide the link, set `available: false` under `cv:`.
 
 ## Photo
 
