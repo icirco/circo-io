@@ -149,7 +149,7 @@ funders:
   en: "Proposal, implementation and reporting for grants from the European Union, USAID/PEPFAR, the Global Fund, the Gates Foundation and the governments of the United Kingdom, the Netherlands, Denmark, Sweden and Switzerland. EU-funded projects in Cambodia, Mozambique and Eswatini."
   de: "Antragstellung, Umsetzung und Reporting für Förderungen der Europäischen Union, von USAID/PEPFAR, dem Global Fund, der Gates Foundation sowie der Regierungen Großbritanniens, der Niederlande, Dänemarks, Schwedens und der Schweiz. EU-Projekte in Kambodscha, Mosambik und Eswatini."
 
-# Ventures, newest first. "url" is optional (makes the name a link).
+# Ventures, newest start year first (shown above the field record). "url" is optional (makes the name a link).
 ventures:
   - name: "Hyfe"
     url: "https://hyfe.com/"
@@ -160,6 +160,14 @@ ventures:
     desc:
       en: "AI-powered endpoint, currently global market leader in cough monitoring"
       de: "KI-gestützter Endpunkt, derzeit Weltmarktführer im Husten-Monitoring"
+  - name: "Intellectual Ventures"
+    years: "2018-2020"
+    role:
+      en: "Advisor"
+      de: "Berater"
+    desc:
+      en: "Seattle-based IP and venture capital firm"
+      de: "IP- und Venture-Capital-Gesellschaft in Seattle"
   - name: "Proof of Impact"
     years: "2017-2020"
     role:
@@ -176,14 +184,6 @@ ventures:
     desc:
       en: "Global social enterprise connecting people in underserved markets with health products and services"
       de: "Globales Sozialunternehmen, das Menschen in unterversorgten Märkten Zugang zu Gesundheitsprodukten und -leistungen verschafft"
-  - name: "Intellectual Ventures"
-    years: "2018-2020"
-    role:
-      en: "Advisor"
-      de: "Berater"
-    desc:
-      en: "Seattle-based IP and venture capital firm"
-      de: "IP- und Venture-Capital-Gesellschaft in Seattle"
 
 # Last row of the ventures list (no name, no years)
 ventures_note:
