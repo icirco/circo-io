@@ -1,0 +1,14 @@
+# PowPal
+
+> PowPal is a community powder forecast for the Eastern Alps. Riders log their real best and worst ski days. Those entries are compared with archived weather forecasts and station data to train a model that predicts powder conditions spot by spot, three to five days ahead.
+
+- Where: the Eastern Alps in Austria, Italy and Slovenia, from Schneeberg in the east to the Zillertal in the west, and from Salzburg in the north to Lake Garda in the south.
+- How to contribute: log a ski day (date, spot, a rating from 1 to 5, what the snow was like; optionally a GPS track or photos), back to winter 2021/22, through the form on the page.
+- What contributors get: the forecasts, starting this winter.
+- Data: entries are used only for this project. No names are published and exact spots are never shown.
+- Status: personal, non-commercial project. Accuracy is unproven so far; the first season is about measuring it.
+
+## Links
+
+- [PowPal: powder forecast for the Eastern Alps](https://circo.io/powpal/)
+- [Log a ski day](https://tally.so/r/NqlE6O)
