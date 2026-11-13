@@ -6,7 +6,7 @@
 - How to contribute: log a ski day (date, spot, a rating from 1 to 5, what the snow was like; optionally a GPS track or photos), back to winter 2021/22, through the form on the page.
 - What contributors get: the forecasts, starting this winter.
 - Data: entries are used only for this project. No names are published and exact spots are never shown.
-- Status: personal, non-commercial project. Accuracy is unproven so far; the first season is about measuring it.
+- Status: personal, non-commercial project.
 
 ## Links
 

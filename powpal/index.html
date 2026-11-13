@@ -28,7 +28,9 @@
   <meta property="og:image:alt" content="Fresh ski tracks and a skin track below a sunlit rock face, with the words PowPal. Your powder day pal.">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon" href="/powpal/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
   <script type="application/ld+json">
   {
@@ -38,22 +40,6 @@
     "url": "https://circo.io/powpal/",
     "inLanguage": "en",
     "description": "PowPal is a community powder forecast for the Eastern Alps. Riders log their real best and worst days to train a model that predicts conditions spot by spot."
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "How is PowPal different from a normal snow forecast?",
-        "acceptedAnswer": { "@type": "Answer", "text": "It predicts conditions at specific spots and is corrected with what riders actually found there." } },
-      { "@type": "Question", "name": "Do I have to share my GPS track?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Date, spot and rating are enough." } },
-      { "@type": "Question", "name": "Which days are useful?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Any day where you are sure of the date and place, good or bad, back to winter 2021/22." } },
-      { "@type": "Question", "name": "How accurate is it?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Unproven so far. The first season is about measuring that honestly." } }
-    ]
   }
   </script>
 
@@ -120,13 +106,7 @@
     .formsec iframe { display: block; width: 100%; border: 0; min-height: 200px; color-scheme: normal; }
     .fallback { font-size: 15px; color: var(--muted); }
 
-    dl { margin: 0; display: grid; gap: 20px; }
-    dt { font-weight: 500; }
-    dd { margin: 4px 0 0; color: var(--muted); }
-    .todo { font-family: var(--mono); font-size: 13px; color: var(--accent); border: 1px dashed currentColor; border-radius: 4px; padding: 1px 6px; }
-
-    footer { border-top: 1px solid var(--line); }
-    footer .wrap { padding-top: 32px; padding-bottom: 48px; display: flex; flex-wrap: wrap; gap: 12px 32px; color: var(--muted); font-size: 14px; }
+    main { padding-bottom: clamp(24px, 4vw, 48px); }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
@@ -198,24 +178,7 @@
       <div class="body"><p>Entries are used only for this project. No names are published and exact spots are never shown.</p></div>
     </div></section>
 
-    <section class="sec" aria-labelledby="faq"><div class="wrap">
-      <h2 id="faq">Questions</h2>
-      <div class="body"><dl>
-        <div><dt>How is PowPal different from a normal snow forecast?</dt><dd>It predicts conditions at specific spots and is corrected with what riders actually found there.</dd></div>
-        <div><dt>Do I have to share my GPS track?</dt><dd>No. Date, spot and rating are enough.</dd></div>
-        <div><dt>Which days are useful?</dt><dd>Any day where you are sure of the date and place, good or bad, back to winter 2021/22.</dd></div>
-        <div><dt>How accurate is it?</dt><dd>Unproven so far. The first season is about measuring that honestly.</dd></div>
-        <!-- TODO owner: answer, then add it to the FAQPage JSON-LD in <head> as well -->
-        <div><dt>Who is behind it?</dt><dd><span class="todo">TODO: owner wording</span></dd></div>
-      </dl></div>
-    </div></section>
   </main>
-
-  <footer><div class="wrap">
-    <!-- TODO owner: identification and privacy notice texts -->
-    <span class="todo">TODO: owner identification</span>
-    <span class="todo">TODO: privacy notice link</span>
-  </div></footer>
 
   <!-- Tally embed loader (from Tally's share tab). Only third-party script on the page. -->
   <script>
