@@ -16,4 +16,8 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://circo.io/bio/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://circo.io/bio/de/"/>
   </url>
+  <url>
+    <loc>https://circo.io/powpal/</loc>
+    <lastmod>2026-11-13</lastmod>
+  </url>
 </urlset>

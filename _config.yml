@@ -5,3 +5,4 @@ exclude:
   - README-bio.md
   - README-expert.md
   - README.md
+  - powpal/README.md

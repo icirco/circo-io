@@ -1,0 +1,225 @@
+<!doctype html>
+<!--
+  PowPal landing page. Plain HTML, CSS inline, no build step.
+  SITE_URL      = https://circo.io/powpal/   (also in canonical, og:*, JSON-LD, /sitemap.xml, llms.txt)
+  TALLY_FORM_ID = NqlE6O                     (iframe data-tally-src and the two fallback links below)
+  See powpal/README.md.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>PowPal | Powder forecast for the Eastern Alps, built on real ski days</title>
+  <meta name="description" content="PowPal is a community powder forecast for the Eastern Alps. Riders log their real best and worst days to train a model that predicts conditions spot by spot.">
+  <link rel="canonical" href="https://circo.io/powpal/">
+  <meta name="theme-color" content="#F2F5FA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0A1222" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Share previews (messengers, social) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://circo.io/powpal/">
+  <meta property="og:site_name" content="PowPal">
+  <meta property="og:title" content="PowPal. Your powder day pal.">
+  <meta property="og:description" content="PowPal is a community powder forecast for the Eastern Alps. Riders log their real best and worst days to train a model that predicts conditions spot by spot.">
+  <meta property="og:image" content="https://circo.io/powpal/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fresh ski tracks and a skin track below a sunlit rock face, with the words PowPal. Your powder day pal.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/powpal/favicon.svg" type="image/svg+xml">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PowPal",
+    "url": "https://circo.io/powpal/",
+    "inLanguage": "en",
+    "description": "PowPal is a community powder forecast for the Eastern Alps. Riders log their real best and worst days to train a model that predicts conditions spot by spot."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How is PowPal different from a normal snow forecast?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It predicts conditions at specific spots and is corrected with what riders actually found there." } },
+      { "@type": "Question", "name": "Do I have to share my GPS track?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Date, spot and rating are enough." } },
+      { "@type": "Question", "name": "Which days are useful?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any day where you are sure of the date and place, good or bad, back to winter 2021/22." } },
+      { "@type": "Question", "name": "How accurate is it?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Unproven so far. The first season is about measuring that honestly." } }
+    ]
+  }
+  </script>
+
+  <link rel="preload" as="image" type="image/avif" fetchpriority="high"
+        imagesrcset="/powpal/hero-800.avif 800w, /powpal/hero-1200.avif 1200w, /powpal/hero-1600.avif 1600w" imagesizes="100vw">
+  <link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+
+  <style>
+    @font-face { font-family: "Geist"; src: url("/assets/fonts/geist.woff2") format("woff2"); font-weight: 400 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: "Geist Mono"; src: url("/assets/fonts/geist-mono.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+
+    :root {
+      --bg: #F2F5FA;
+      --ink: #0E1A2E;
+      --muted: #4F5D73;
+      --accent: #1F4FD1;
+      --on-accent: #FFFFFF;
+      --line: #D3DBE8;
+      --panel: #E6ECF5;
+      --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+      --gutter: max(20px, env(safe-area-inset-left, 0px));
+      --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0A1222; --ink: #E8EDF5; --muted: #9BA8BD; --accent: #86A9FF; --on-accent: #0A1222; --line: #1F2B42; --panel: #101B30; }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.6; }
+    img { max-width: 100%; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+    .wrap { max-width: 1080px; margin-inline: auto; padding-left: var(--gutter); padding-right: var(--gutter-r); }
+
+    /* Hero: full-bleed photo, type on a dark scrim at the foot */
+    .hero { position: relative; color: #FFFFFF; background: #0A1222; }
+    .hero img { display: block; width: 100%; height: clamp(520px, 82svh, 860px); object-fit: cover; object-position: 66% 50%; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,10,24,0) 35%, rgba(4,10,24,.74) 100%); pointer-events: none; }
+    .hero .txt { position: absolute; inset: auto 0 0 0; z-index: 1; padding-bottom: clamp(28px, 6vw, 64px); display: grid; gap: 18px; }
+    h1 { margin: 0; font-size: clamp(46px, 9vw, 112px); font-weight: 600; letter-spacing: -0.035em; line-height: 0.98; text-wrap: balance; }
+    .sub { margin: 0; font-size: clamp(19px, 2.2vw, 24px); line-height: 1.35; color: rgba(255,255,255,.9); }
+    .btn { justify-self: start; display: inline-flex; align-items: center; gap: 10px; background: #FFFFFF; color: #0E1A2E; text-decoration: none; font-weight: 500; font-size: 17px; padding: 14px 22px; border-radius: 6px; }
+    .btn svg { width: 16px; height: 16px; }
+    .btn:hover { background: #E6ECF5; }
+    .btn:focus-visible { outline: 2px solid #FFFFFF; outline-offset: 3px; }
+
+    /* Sections: heading left, text right on wide screens */
+    .sec { border-top: 1px solid var(--line); }
+    .hero + main .sec:first-child { border-top: 0; }
+    .sec > .wrap { display: grid; gap: 12px; padding-top: clamp(36px, 6vw, 72px); padding-bottom: clamp(36px, 6vw, 72px); }
+    @media (min-width: 820px) { .sec > .wrap { grid-template-columns: 4fr 7fr; gap: 48px; } }
+    h2 { margin: 0; font-size: clamp(24px, 3vw, 32px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; text-wrap: balance; }
+    .body { display: grid; gap: 14px; max-width: 62ch; min-width: 0; }
+    .body p { margin: 0; }
+    .body ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .body li { padding-left: 22px; position: relative; }
+    .body li::before { content: ""; position: absolute; left: 0; top: .78em; width: 10px; height: 2px; background: var(--accent); }
+
+    /* Tally renders dark text on a transparent background, so the form section stays light in dark mode too */
+    .formsec { --ink: #0E1A2E; --muted: #4F5D73; --accent: #1F4FD1; --line: #D3DBE8; background: #E6ECF5; color: var(--ink); border-top-color: transparent; color-scheme: light; }
+    .hint { color: var(--muted); font-family: var(--mono); font-size: 14px; }
+    .formsec iframe { display: block; width: 100%; border: 0; min-height: 200px; color-scheme: normal; }
+    .fallback { font-size: 15px; color: var(--muted); }
+
+    dl { margin: 0; display: grid; gap: 20px; }
+    dt { font-weight: 500; }
+    dd { margin: 4px 0 0; color: var(--muted); }
+    .todo { font-family: var(--mono); font-size: 13px; color: var(--accent); border: 1px dashed currentColor; border-radius: 4px; padding: 1px 6px; }
+
+    footer { border-top: 1px solid var(--line); }
+    footer .wrap { padding-top: 32px; padding-bottom: 48px; display: flex; flex-wrap: wrap; gap: 12px 32px; color: var(--muted); font-size: 14px; }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+  <noscript><style>.formsec iframe { display: none; }</style></noscript>
+</head>
+<body>
+  <header class="hero">
+    <picture>
+      <source type="image/avif" srcset="/powpal/hero-800.avif 800w, /powpal/hero-1200.avif 1200w, /powpal/hero-1600.avif 1600w" sizes="100vw">
+      <source type="image/webp" srcset="/powpal/hero-800.webp 800w, /powpal/hero-1200.webp 1200w, /powpal/hero-1600.webp 1600w" sizes="100vw">
+      <img src="/powpal/hero-1200.jpg" srcset="/powpal/hero-800.jpg 800w, /powpal/hero-1200.jpg 1200w, /powpal/hero-1600.jpg 1600w" sizes="100vw"
+           alt="Fresh ski tracks and a skin track below a sunlit rock face, deep blue sky" width="1600" height="900" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="txt wrap">
+      <h1>PowPal. Your powder day pal.</h1>
+      <p class="sub">Powder forecasts for strike missions.</p>
+      <a class="btn" href="#log">Log a ski day <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v11M3 8.5 8 13.5l5-5" stroke="currentColor" stroke-width="1.6"/></svg></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="sec" aria-labelledby="why"><div class="wrap">
+      <h2 id="why">Why commercial forecasts suck</h2>
+      <div class="body"><p>Commercial snow forecasts are built on large-scale weather models. They work for a whole mountain range. But powder depends on local things: aspect, weird local wind, the temperature during the storm, what the snow fell on. That is why you show up for “50 cm” and find wind crust or chowder. Or you come with low expectations and get the day of the season.</p></div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="zoom"><div class="wrap">
+      <h2 id="zoom">Zoom in</h2>
+      <div class="body"><p>The big models get close for places like Chamonix or St. Anton. But what about that bowl that isn’t on any map? The people who were there know what really happened. If enough riders log their real days, we can compare them with what was forecast and what the weather stations measured, and train a better model, spot by spot.</p></div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="need"><div class="wrap">
+      <h2 id="need">What we need</h2>
+      <div class="body">
+        <p>Your best and worst days, back to winter 2021/22:</p>
+        <ul>
+          <li>Date and spot, as precise as you can</li>
+          <li>A rating from 1 to 5</li>
+          <li>What the snow was like</li>
+          <li>Optional, but very valuable: a GPS track or photos from the day</li>
+        </ul>
+        <p>Surprises are the most useful: great days on a meh forecast, and hyped forecasts that delivered meh.</p>
+      </div>
+    </div></section>
+
+    <section class="sec formsec" id="log" aria-labelledby="log-h"><div class="wrap">
+      <h2 id="log-h">Log a ski day</h2>
+      <div class="body">
+        <p class="hint">Takes about a minute. One entry per day.</p>
+        <iframe data-tally-src="https://tally.so/embed/NqlE6O?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1"
+                loading="lazy" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" title="PowPal: log a ski day"></iframe>
+        <noscript><p>This form needs JavaScript. <a href="https://tally.so/r/NqlE6O">Open the form on Tally</a>.</p></noscript>
+        <p class="fallback">Form not loading? <a href="https://tally.so/r/NqlE6O">Open it here</a></p>
+      </div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="where"><div class="wrap">
+      <h2 id="where">Where</h2>
+      <div class="body"><p>I’m starting with my own strike-mission area, the Eastern Alps in Austria, Italy and Slovenia: from Schneeberg in the east to the Zillertal in the west, and from Salzburg in the north to Lake Garda in the south. If it works, we expand.</p></div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="back"><div class="wrap">
+      <h2 id="back">What you get back</h2>
+      <div class="body"><p>I’ll share the forecasts with everyone who contributes, starting this winter.</p></div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="data"><div class="wrap">
+      <h2 id="data">Your data</h2>
+      <div class="body"><p>Entries are used only for this project. No names are published and exact spots are never shown.</p></div>
+    </div></section>
+
+    <section class="sec" aria-labelledby="faq"><div class="wrap">
+      <h2 id="faq">Questions</h2>
+      <div class="body"><dl>
+        <div><dt>How is PowPal different from a normal snow forecast?</dt><dd>It predicts conditions at specific spots and is corrected with what riders actually found there.</dd></div>
+        <div><dt>Do I have to share my GPS track?</dt><dd>No. Date, spot and rating are enough.</dd></div>
+        <div><dt>Which days are useful?</dt><dd>Any day where you are sure of the date and place, good or bad, back to winter 2021/22.</dd></div>
+        <div><dt>How accurate is it?</dt><dd>Unproven so far. The first season is about measuring that honestly.</dd></div>
+        <!-- TODO owner: answer, then add it to the FAQPage JSON-LD in <head> as well -->
+        <div><dt>Who is behind it?</dt><dd><span class="todo">TODO: owner wording</span></dd></div>
+      </dl></div>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">
+    <!-- TODO owner: identification and privacy notice texts -->
+    <span class="todo">TODO: owner identification</span>
+    <span class="todo">TODO: privacy notice link</span>
+  </div></footer>
+
+  <!-- Tally embed loader (from Tally's share tab). Only third-party script on the page. -->
+  <script>
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+  </script>
+</body>
+</html>
